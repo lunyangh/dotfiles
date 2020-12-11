@@ -12,6 +12,9 @@ fi
 
 # Customize to your needs...
 
+# Source zsh autocomplete
+# source '/Users/lunyanghuang/Dropbox (Personal)/Projects/Terminal/custom_package/zsh/zsh-autocomplete/zsh-autocomplete.plugin.zsh'
+
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!

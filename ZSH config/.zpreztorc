@@ -44,10 +44,10 @@ zstyle ':prezto:load' pmodule \
   'git' \
   'syntax-highlighting' \
   'history-substring-search' \
+  'autosuggestions' \
   'terminal' \
   'prompt'
 
-#  'autosuggestions' \
 #
 # Autosuggestions
 # To enable highlighting for this module only, add the following line to zpreztorc:
