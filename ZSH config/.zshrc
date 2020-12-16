@@ -3,9 +3,12 @@
 #
 # Authors:
 #   Sorin Ionescu <sorin.ionescu@gmail.com>
-#
 
-# Source Prezto.
+# set default editor to vim
+export EDITOR=/usr/local/bin/vim
+export VISUAL=/usr/local/bin/vim
+
+ #Source Prezto.
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
@@ -13,6 +16,9 @@ fi
 # Customize to your needs...
 alias vi=/usr/local/bin/vim
 alias vim=/usr/local/bin/vim
+# set keybinding to vim 
+bindkey -v
+
 # Source zsh autocomplete
 # source '/Users/lunyanghuang/Dropbox (Personal)/Projects/Terminal/custom_package/zsh/zsh-autocomplete/zsh-autocomplete.plugin.zsh'
 

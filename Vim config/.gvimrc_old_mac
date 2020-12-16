@@ -30,5 +30,5 @@ endif
 "colorscheme material 
 " Set default font to Firecode 
 set macligatures
-set guifont=Fira\ Code:h18
+set guifont=Fira\ Code:h14
 
