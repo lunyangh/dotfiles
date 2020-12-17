@@ -1,8 +1,6 @@
-#
-# Executes commands at the start of an interactive session.
-#
-# Authors:
-#   Sorin Ionescu <sorin.ionescu@gmail.com>
+# change $PATH 
+export PATH="/usr/local/opt/ruby/bin:$PATH"
+export PATH="$HOME/.gem/ruby/2.7.0/bin:$PATH"
 
 # set default editor to vim
 export EDITOR=/usr/local/bin/vim
@@ -18,7 +16,109 @@ alias vi=/usr/local/bin/vim
 alias vim=/usr/local/bin/vim
 # set keybinding to vim 
 bindkey -v
+# bindkey -e
+# Customize spaceship prompt 
+# ORDER
+SPACESHIP_PROMPT_ORDER=(
+    conda
+    battery
+    user
+    dir
+    host
+    vi_mode
+    char
+) 
+SPACESHIP_RPROMPT_ORDER=(
+    git
+)
+# GENERAL SETUP
+SPACESHIP_PROMPT_ADD_NEWLINE=false
+SPACESHIP_PROMPT_SEPARATE_LINE=true
+SPACESHIP_PROMPT_FIRST_PREFIX_SHOW=false
+#SPACESHIP_PROMPT_DEFAULT_PREFIX="@"
+#SPACESHIP_PROMPT_DEFAULT_SUFFIX=
+# CHAR
+SPACESHIP_CHAR_SYMBOL=">"
+SPACESHIP_CHAR_PREFIX=""
+SPACESHIP_CHAR_SUFFIX=" "
+# USER
+# SPACESHIP_USER_PREFIX="" # remove `with` before username
+# SPACESHIP_USER_SUFFIX="" # remove space before host
+# TIME 
+SPACESHIP_TIME_SHOW=false
+# HOST
+# Result will look like this:
+#   username@:hostname)
+SPACESHIP_USER_SHOW=true
+SPACESHIP_HOST_PREFIX="@:"
+SPACESHIP_HOST_SUFFIX=" "
 
+# DIR
+SPACESHIP_DIR_PREFIX="" 
+SPACESHIP_DIR_SUFFIX=" "
+SPACESHIP_DIR_TRUNC=1 # show only last directory
+SPACESHIP_DIR_COLOR='yellow'
+# GIT
+# Disable git symbol
+#SPACESHIP_GIT_SYMBOL="" # disable git prefix
+#SPACESHIP_GIT_BRANCH_PREFIX="" # disable branch prefix too
+# Wrap git in `git:...)`
+SPACESHIP_GIT_PREFIX='git:'
+SPACESHIP_GIT_SUFFIX=" "
+#SPACESHIP_GIT_BRANCH_SUFFIX="" # remove space after branch name
+## Unwrap git status from `[...]`
+#SPACESHIP_GIT_STATUS_PREFIX=""
+#SPACESHIP_GIT_STATUS_SUFFIX=""
+
+# NODE
+SPACESHIP_NODE_PREFIX="node:"
+SPACESHIP_NODE_SUFFIX=" "
+SPACESHIP_NODE_SYMBOL=""
+
+# RUBY
+SPACESHIP_RUBY_PREFIX="ruby:"
+SPACESHIP_RUBY_SUFFIX=" "
+SPACESHIP_RUBY_SYMBOL=""
+
+# XCODE
+SPACESHIP_XCODE_PREFIX="xcode:"
+SPACESHIP_XCODE_SUFFIX=" "
+SPACESHIP_XCODE_SYMBOL=""
+
+# SWIFT
+SPACESHIP_SWIFT_PREFIX="swift:"
+SPACESHIP_SWIFT_SUFFIX=" "
+SPACESHIP_SWIFT_SYMBOL=""
+
+# GOLANG
+SPACESHIP_GOLANG_PREFIX="go:"
+SPACESHIP_GOLANG_SUFFIX=" "
+SPACESHIP_GOLANG_SYMBOL=""
+
+# DOCKER
+SPACESHIP_DOCKER_PREFIX="docker:"
+SPACESHIP_DOCKER_SUFFIX=" "
+SPACESHIP_DOCKER_SYMBOL=""
+
+# CONDA
+SPACESHIP_CONDA_PREFIX=""
+SPACESHIP_CONDA_COLOR='blue'
+# VENV
+SPACESHIP_VENV_PREFIX="venv:"
+SPACESHIP_VENV_SUFFIX=" "
+
+# PYENV
+SPACESHIP_PYENV_PREFIX="python:"
+SPACESHIP_PYENV_SUFFIX=" "
+SPACESHIP_PYENV_SYMBOL=""
+
+# Vi mode eabled 
+SPACESHIP_VI_MODE_SHOW=true
+SPACESHIP_VI_MODE_INSERT='[I]'
+SPACESHIP_VI_MODE_NORMAL='[N]'
+SPACESHIP_VI_MODE_SUFFIX=""
+SPACESHIP_VI_MODE_COLOR='magenta'
+eval spaceship_vi_mode_enable
 # Source zsh autocomplete
 # source '/Users/lunyanghuang/Dropbox (Personal)/Projects/Terminal/custom_package/zsh/zsh-autocomplete/zsh-autocomplete.plugin.zsh'
 
@@ -36,7 +136,6 @@ else
     fi
 fi
 unset __conda_setup
-
 # <<< conda initialize <<<
 
 # export PS1='%n-%1~:'
