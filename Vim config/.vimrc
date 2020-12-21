@@ -27,7 +27,10 @@ Plugin 'vim-airline/vim-airline'
 " fuzzy file search
 Plugin 'junegunn/fzf'               
 Plugin 'junegunn/fzf.vim'
+" file explorer
 Plugin 'preservim/nerdtree'
+" enhancement of writing 
+Plugin 'reedes/vim-pencil'
 
 
 " ************* example plugins ****************
@@ -68,6 +71,14 @@ filetype plugin indent on    " required
 " NERDTree 
 let g:NERDTreeShowLineNumbers=1         " show line number for better navigation
 
+" Vim-Pencil
+let g:pencil#wrapModeDefault = 'soft' 
+
+augroup pencil 
+    autocmd!
+    autocmd FileType markdown,mkd call pencil#init()
+    autocmd FileType text          call pencil#init()
+augroup END
 
 
 " ************ non-plugin setup ***********
@@ -114,6 +125,7 @@ set shiftround          " >> indents adjust to multiple of 'shiftwidth'
 set autoindent          " Indent according to previous line
 set smartindent         " Smart indent accoding to file type 
 " Show line numbers.
+set breakindent         " softwrapped lines will visually indented
 set number
 set relativenumber
 " Status bar
@@ -171,10 +183,33 @@ set undofile                                " set undofile
 set undodir     =$HOME/.vim/files/undo/     " directory of undofile
 set viminfo     ='100,n$HOME/.vim/files/info/viminfo "save vim session information
 
-" *************** remap keybinds ***************
+
+
+" *************** make leaving insertion mode quick *************
+" When you’re pressing Escape to leave insert mode in the terminal, it will by
+" default take a second or another keystroke to leave insert mode completely
+" and update the statusline. This fixes that. I got this from:
+" https://powerline.readthedocs.org/en/latest/tipstricks.html#vim
+set timeout
+set ttimeoutlen=10
+set timeoutlen=1000
+"augroup FastEscape
+"    autocmd!
+"    au InsertEnter * set timeoutlen=0
+"    au InsertLeave * set timeoutlen=1000
+"augroup END
+
+" *************** remapping keybinds ***************
+" Setup exit of insertion mode
+imap jk <Esc>
+
+
+
 " Setup leader key and related mapping 
 let mapleader = "," 
 " let localmapleader = "\<space>" " check ':h localleader?'
+nnoremap <leader>cd :cd %:p:h<CR>   " set current file's directory as working directory
+nnoremap <leader>/  :noh<CR>       " set clear highlight with leaderkey
 
 
 
