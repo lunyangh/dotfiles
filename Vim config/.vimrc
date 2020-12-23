@@ -24,6 +24,7 @@ Plugin 'VundleVim/Vundle.vim'
 "***************** Plugins added myself **************
 " Nice status line 
 Plugin 'vim-airline/vim-airline'    
+Plugin 'vim-airline/vim-airline-themes'
 " fuzzy file search
 Plugin 'junegunn/fzf'               
 Plugin 'junegunn/fzf.vim'
@@ -31,7 +32,8 @@ Plugin 'junegunn/fzf.vim'
 Plugin 'preservim/nerdtree'
 " enhancement of writing 
 Plugin 'reedes/vim-pencil'
-
+" gruvbox colortheme
+Plugin 'morhetz/gruvbox'
 
 " ************* example plugins ****************
 " The following are examples of different formats supported.
@@ -67,6 +69,14 @@ filetype plugin indent on    " required
 
 
 " ********** configuration for plugins *************
+" Airline 
+" eable buffers list above
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#buffer_nr_show = 1
+"let g:airline#extensions#tabline#left_sep = ' '
+"let g:airline#extensions#tabline#left_alt_sep = '|'
+let g:airline#extensions#tabline#formatter = 'unique_tail'
+
 
 " NERDTree 
 let g:NERDTreeShowLineNumbers=1         " show line number for better navigation
@@ -80,6 +90,8 @@ augroup pencil
     autocmd FileType text          call pencil#init()
 augroup END
 
+" grubvox colorscheme 
+let g:gruvbox_contrast_dark="medium"
 
 " ************ non-plugin setup ***********
 " filetype setup already in Vundle part below.
@@ -108,11 +120,41 @@ if (has('termguicolors'))
   set termguicolors
 endif
 
+" air-line
+let g:airline_powerline_fonts = 1
+
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+endif
+
+" unicode symbols
+let g:airline_left_sep = '»'
+let g:airline_left_sep = '▶'
+let g:airline_right_sep = '«'
+let g:airline_right_sep = '◀'
+let g:airline_symbols.linenr = '␊'
+let g:airline_symbols.linenr = '␤'
+let g:airline_symbols.linenr = '¶'
+let g:airline_symbols.branch = '⎇'
+let g:airline_symbols.paste = 'ρ'
+let g:airline_symbols.paste = 'Þ'
+let g:airline_symbols.paste = '∥'
+let g:airline_symbols.whitespace = 'Ξ'
+
+" airline symbols
+let g:airline_left_sep = ''
+let g:airline_left_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_right_alt_sep = ''
+let g:airline_symbols.branch = ''
+let g:airline_symbols.readonly = ''
+let g:airline_symbols.linenr = ''
+
 " setup color theme 
 "set t_Co=256
 "let g:material_theme_style = 'darker'
-colorscheme onedark 
-
+" colorscheme onedark 
+colorscheme gruvbox
 
 
 " *********** Other setup **********

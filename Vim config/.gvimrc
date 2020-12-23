@@ -29,6 +29,7 @@ endif
 "let g:material_theme_style = 'default'
 "colorscheme material 
 " Set default font to Firecode 
+set bg=dark
 set macligatures
 set guifont=Fira\ Code:h18
 
