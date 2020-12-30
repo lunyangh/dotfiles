@@ -243,17 +243,26 @@ set timeoutlen=1000
 
 " *************** remapping keybinds ***************
 " Setup exit of insertion mode
-imap jk <Esc>
-
-
-
-" Setup leader key and related mapping 
-let mapleader = "," 
+" exit insersion mode with jk 
+inoremap jk <Esc>
+" ************ Setup leader key and related mapping ********
+let mapleader = "\<Space>"
 " let localmapleader = "\<space>" " check ':h localleader?'
 nnoremap <leader>cd :cd %:p:h<CR>   " set current file's directory as working directory
 nnoremap <leader>/  :noh<CR>       " set clear highlight with leaderkey
 
+" change buffers 
+nnoremap <leader>n  :bn<CR> " to next buffer  
+nnoremap <leader>p  :bp<CR> " to previous buffer
+nnoremap <leader>d  :bd<CR> " to close current buffer
+nnoremap <leader>l  :Lines<CR> " search Lines
+nnoremap <leader>h  <c-w>h
+nnoremap <leader>j  <c-w>j
+nnoremap <leader>k  <c-w>k
+nnoremap <leader>l  <c-w>l
 
+" Fuzzy search file 
+nnoremap <c-p>     :Files<CR>
 
 " Unbind some useless/annoying default key bindings.
 nmap Q <Nop> " 'Q' in normal mode enters Ex mode. You almost never want this.
