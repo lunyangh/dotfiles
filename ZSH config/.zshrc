@@ -14,6 +14,8 @@ fi
 # Customize to your needs...
 alias vi=/usr/local/bin/vim
 alias vim=/usr/local/bin/vim
+alias gcc='gcc-10'
+alias g++='g++-10'
 # set keybinding to vim 
 bindkey -v
 # bindkey -e
@@ -120,19 +122,19 @@ SPACESHIP_VI_MODE_SUFFIX=""
 SPACESHIP_VI_MODE_COLOR='magenta'
 eval spaceship_vi_mode_enable
 # Source zsh autocomplete
-# source '/Users/lunyanghuang/Dropbox (Personal)/Projects/Terminal/custom_package/zsh/zsh-autocomplete/zsh-autocomplete.plugin.zsh'
+# source '$HOME/Dropbox (Personal)/Projects/Terminal/custom_package/zsh/zsh-autocomplete/zsh-autocomplete.plugin.zsh'
 
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/Users/lunyanghuang/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+__conda_setup="$("$HOME/anaconda3/bin/conda" 'shell.zsh' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
-    if [ -f "/Users/lunyanghuang/anaconda3/etc/profile.d/conda.sh" ]; then
-        . "/Users/lunyanghuang/anaconda3/etc/profile.d/conda.sh"
+    if [ -f "$HOME/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "$HOME/anaconda3/etc/profile.d/conda.sh"
     else
-        export PATH="/Users/lunyanghuang/anaconda3/bin:$PATH"
+        export PATH="$HOME/anaconda3/bin:$PATH"
     fi
 fi
 unset __conda_setup
