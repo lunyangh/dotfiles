@@ -29,11 +29,18 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'junegunn/fzf'               
 Plugin 'junegunn/fzf.vim'
 " file explorer
-Plugin 'preservim/nerdtree'
+" Plugin 'preservim/nerdtree'
 " enhancement of writing 
 Plugin 'reedes/vim-pencil'
 " gruvbox colortheme
 Plugin 'morhetz/gruvbox'
+" Snippet software 
+Plugin 'SirVer/ultisnips'
+" Plugin 'honza/vim-snippets'  "community supplied snippets
+" RealLine Evaluation
+" Plugin 'jpalardy/vim-slime'
+" Generate status bar for tmux 
+Plugin 'edkolev/tmuxline.vim'
 
 " ************* example plugins ****************
 " The following are examples of different formats supported.
@@ -91,7 +98,12 @@ augroup pencil
 augroup END
 
 " grubvox colorscheme 
-let g:gruvbox_contrast_dark="medium"
+" let g:gruvbox_contrast_dark="hard"
+
+" ultisnips configuration
+let g:UltiSnipsExpandTrigger="<tab>"
+" let g:UltiSnipsSnippetDirectories=["UltiSnips","user_snippets"]
+let g:UltiSnipsSnippetDirectories=["user_snippets"]
 
 " ************ non-plugin setup ***********
 " filetype setup already in Vundle part below.
@@ -151,10 +163,14 @@ let g:airline_symbols.readonly = ''
 let g:airline_symbols.linenr = ''
 
 " setup color theme 
+" set t_8f t_8b manually for screen-256color, see :h xterm-true-color
+let &t_8f = "\<Esc>[38:2:%lu:%lu:%lum"
+let &t_8b = "\<Esc>[48:2:%lu:%lu:%lum"
+
 "set t_Co=256
 "let g:material_theme_style = 'darker'
-" colorscheme onedark 
-colorscheme gruvbox
+colorscheme onedark 
+" colorscheme gruvbox
 
 
 " *********** Other setup **********
@@ -245,24 +261,47 @@ set timeoutlen=1000
 " Setup exit of insertion mode
 " exit insersion mode with jk 
 inoremap jk <Esc>
+
 " ************ Setup leader key and related mapping ********
 let mapleader = "\<Space>"
 " let localmapleader = "\<space>" " check ':h localleader?'
 nnoremap <leader>cd :cd %:p:h<CR>   " set current file's directory as working directory
 nnoremap <leader>/  :noh<CR>       " set clear highlight with leaderkey
 
-" change buffers 
+" map to change view different buffers 
 nnoremap <leader>n  :bn<CR> " to next buffer  
 nnoremap <leader>p  :bp<CR> " to previous buffer
 nnoremap <leader>d  :bd<CR> " to close current buffer
 nnoremap <leader>l  :Lines<CR> " search Lines
+" switch to different windows
 nnoremap <leader>h  <c-w>h
 nnoremap <leader>j  <c-w>j
 nnoremap <leader>k  <c-w>k
 nnoremap <leader>l  <c-w>l
+" adjust current window witdh
+nnoremap <leader>=  :exe "vertical resize " . (winwidth(0) * 5/4)<CR>
+nnoremap <leader>-  :exe "vertical resize " . (winwidth(0) * 4/5)<CR>
+" adjust current window height
+nnoremap <leader>+  :exe "resize " . (winheight(0) * 5/4)<CR>
+nnoremap <leader>_  :exe "resize " . (winheight(0) * 4/5)<CR>
 
 " Fuzzy search file 
 nnoremap <c-p>     :Files<CR>
+
+" code to run python with F9
+autocmd FileType python nnoremap <buffer> <F9> 
+        \ :w<CR> :exec '!clear -x; python3' shellescape(@%, 1)<CR>
+autocmd FileType python inoremap <buffer> <F9> 
+        \ <esc>:w<CR> :exec '!clear; python3' shellescape(@%, 1)<CR>
+
+
+
+
+
+
+
+
+
 
 " Unbind some useless/annoying default key bindings.
 nmap Q <Nop> " 'Q' in normal mode enters Ex mode. You almost never want this.
