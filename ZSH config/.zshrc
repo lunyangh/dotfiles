@@ -16,6 +16,15 @@ alias vi=/usr/local/bin/vim
 alias vim=/usr/local/bin/vim
 alias gcc='gcc-10'
 alias g++='g++-10'
+
+# tmux related alias
+# create a new session with name
+alias tn='tmux new-session -s'
+# attach to a session with name 
+alias ta='tmux attach -t' 
+# lists all ongoing sessions 
+alias tl='tmux list-sessions'
+
 # set keybinding to vim 
 bindkey -v
 # bindkey -e
