@@ -33,3 +33,15 @@ set bg=dark
 set macligatures
 set guifont=Fira\ Code:h18
 
+
+" ********** set colorscheme for reading markdown *************
+" augroup markdowncolorscheme
+"     autocmd!
+"     autocmd BufNewFile,BufRead *.md colorscheme=gruvbox 
+" augroup end
+" 
+
+" ********** disable autosave session from vimrc *************
+autocmd! loadsession
+
+

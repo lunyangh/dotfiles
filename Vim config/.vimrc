@@ -29,7 +29,7 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'junegunn/fzf'               
 Plugin 'junegunn/fzf.vim'
 " file explorer
-" Plugin 'preservim/nerdtree'
+Plugin 'preservim/nerdtree'
 " enhancement of writing 
 Plugin 'reedes/vim-pencil'
 " gruvbox colortheme
@@ -41,6 +41,9 @@ Plugin 'SirVer/ultisnips'
 " Plugin 'jpalardy/vim-slime'
 " Generate status bar for tmux 
 Plugin 'edkolev/tmuxline.vim'
+" markdown plugin with folding support 
+" Plugin 'godlygeek/tabular' 
+" Plugin 'plasticboy/vim-markdown'
 
 " ************* example plugins ****************
 " The following are examples of different formats supported.
@@ -83,7 +86,7 @@ let g:airline#extensions#tabline#buffer_nr_show = 1
 "let g:airline#extensions#tabline#left_sep = ' '
 "let g:airline#extensions#tabline#left_alt_sep = '|'
 let g:airline#extensions#tabline#formatter = 'unique_tail'
-
+let g:airline#extensions#tmuxline#enabled = 0
 
 " NERDTree 
 let g:NERDTreeShowLineNumbers=1         " show line number for better navigation
@@ -101,22 +104,33 @@ augroup END
 " let g:gruvbox_contrast_dark="hard"
 
 " ultisnips configuration
-let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsExpandTrigger="<Tab>"
+let g:UltiSnipsJumpForwardTrigger="<S-j>"
+let g:UltiSnipsJumpBackwardTrigger="<S-k>"
 " let g:UltiSnipsSnippetDirectories=["UltiSnips","user_snippets"]
 let g:UltiSnipsSnippetDirectories=["user_snippets"]
 
+" tmuxline
+" #P is the pane index
+let g:tmuxline_preset = {
+      \'a'    : '#S',
+      \'win'  : ['#I', '#W'],
+      \'cwin' : ['#I', '#W', '#P'],
+      \'y'    : ['%R', '%a', '%Y-%m-%d'],
+      \'z'    : '#H'}
+
+
 " ************ non-plugin setup ***********
-" filetype setup already in Vundle part below.
-"filetype plugin indent on              " Load plugins according to detected filetype, 
 
 " Turn on syntax highlighting.
 syntax on
 
 " ensuring encoding is correct
+
+set fileencodings=utf-8,gb2312,gb18030,gbk,ucs-bom,cp936,latin1
 if &encoding ==# 'latin1' && has('gui_running')
   set encoding=utf-8
 endif
-
 
 " ************ font and colorscheme *************
 " enable true color 
@@ -167,18 +181,73 @@ let g:airline_symbols.linenr = ''
 let &t_8f = "\<Esc>[38:2:%lu:%lu:%lum"
 let &t_8b = "\<Esc>[48:2:%lu:%lu:%lum"
 
+
+" change comment color in onedark.vim colorscheme
+if (has("autocmd"))
+  augroup colorextend
+    autocmd!
+    " Override the `Comment` foreground color in 256-color mode
+    autocmd ColorScheme * call onedark#extend_highlight("Comment",{"fg":{"gui": "#07db72" } })
+  augroup END
+endif
+
+
+
 "set t_Co=256
 "let g:material_theme_style = 'darker'
+set background=dark
 colorscheme onedark 
 " colorscheme gruvbox
 
+" adjust comment color globally
+" hi Comment guifg=#00ff80
+
+" ********* corlor adjustment for different language *******
+augroup pythonhighlight
+    autocmd!
+    autocmd FileType python
+                \   syn keyword pythonSelf self
+                \ | highlight def link pythonSelf Special
+augroup end
+
+" allow unlimited depth of nested list to be highlighted
+augroup markdownhighlight
+    autocmd!
+    autocmd Syntax markdown syn match markdownListMarker "\%(\t\| \{0,\}\)[-*+]\%(\s\+\S\)\@=" contained
+augroup end
+" syntax highlight of code in fenced block 
+let g:markdown_fenced_languages=['python','bash=sh']
+
+" ********** recognize specific filetype *************
+
+augroup additionalfilehighlight
+    autocmd!
+    autocmd BufNewFile,BufRead *.mplstyle,.matplotlibrc setfiletype=python
+augroup end
+
 
 " *********** Other setup **********
-" tab/space setup 
+" tab/space setup
 set softtabstop=4       " tab to space 
 set shiftwidth=4        " Tab key indents by 4 spaces
 set expandtab           " insert spaces when type tabs 
 set shiftround          " >> indents adjust to multiple of 'shiftwidth'
+
+" to fix indentation under parenthese in python file
+" check: https://stackoverflow.com/questions/39553825/vim-double-indents-python-files 
+let g:pyindent_open_paren=shiftwidth()
+
+" file type specific tab/space 
+"augroup tab_space_mapping
+"    autocmd! " remove all autocommand within group
+"    autocmd FileType sshconfig setlocal shiftwidth=4 softabstop=4 
+"augroup END
+
+" clipboard 
+" with this option, the unnamed register coincides with the clipboard
+" register, share symbol *, thus to paste in insertion mode <c-r>*
+set clipboard=unnamed
+
 " indent 
 set autoindent          " Indent according to previous line
 set smartindent         " Smart indent accoding to file type 
@@ -225,6 +294,12 @@ set scrolloff=8
 set wildmenu
 set wildmode=longest:full,full
 
+" ********** Folding *************
+set foldmethod=indent
+set nofoldenable
+set foldlevel=20
+" set foldclose=all
+
 " ************** backup setting *****************
 " Put all temporary files under the same directory.
 " https://github.com/mhinz/vim-galore#handling-backup-swap-undo-and-viminfo-files
@@ -241,27 +316,36 @@ set undofile                                " set undofile
 set undodir     =$HOME/.vim/files/undo/     " directory of undofile
 set viminfo     ='100,n$HOME/.vim/files/info/viminfo "save vim session information
 
+" **********  sautosave session per directory upon enter and exit vim *************
+ 
+function! SaveSess()
+    execute 'mksession! ' . getcwd() . '/.session.vim'
+endfunction
 
+function! RestoreSess()
+if filereadable(getcwd() . '/.session.vim')
+    execute 'so ' . getcwd() . '/.session.vim'
+endif
+endfunction
+
+augroup loadsession
+    autocmd!
+    autocmd VimLeave * call SaveSess()
+    autocmd VimEnter * nested call RestoreSess()
+augroup END
 
 " *************** make leaving insertion mode quick *************
 " When you’re pressing Escape to leave insert mode in the terminal, it will by
 " default take a second or another keystroke to leave insert mode completely
 " and update the statusline. This fixes that. I got this from:
 " https://powerline.readthedocs.org/en/latest/tipstricks.html#vim
-set timeout
-set ttimeoutlen=10
+" https://www.reddit.com/r/vim/comments/2391u5/delay_while_using_esc_to_exit_insert_mode/
+set timeout 
+set ttimeout
+set ttimeoutlen=100
 set timeoutlen=1000
-"augroup FastEscape
-"    autocmd!
-"    au InsertEnter * set timeoutlen=0
-"    au InsertLeave * set timeoutlen=1000
-"augroup END
 
 " *************** remapping keybinds ***************
-" Setup exit of insertion mode
-" exit insersion mode with jk 
-inoremap jk <Esc>
-
 " ************ Setup leader key and related mapping ********
 let mapleader = "\<Space>"
 " let localmapleader = "\<space>" " check ':h localleader?'
@@ -273,17 +357,15 @@ nnoremap <leader>n  :bn<CR> " to next buffer
 nnoremap <leader>p  :bp<CR> " to previous buffer
 nnoremap <leader>d  :bd<CR> " to close current buffer
 nnoremap <leader>l  :Lines<CR> " search Lines
-" switch to different windows
-nnoremap <leader>h  <c-w>h
-nnoremap <leader>j  <c-w>j
-nnoremap <leader>k  <c-w>k
-nnoremap <leader>l  <c-w>l
+" leader keys also used to switch fields in snippets 
+
+
 " adjust current window witdh
-nnoremap <leader>=  :exe "vertical resize " . (winwidth(0) * 5/4)<CR>
-nnoremap <leader>-  :exe "vertical resize " . (winwidth(0) * 4/5)<CR>
+nnoremap <leader>=  :exe "vertical resize " . (winwidth(0) * 13/12)<CR>
+nnoremap <leader>-  :exe "vertical resize " . (winwidth(0) * 12/13)<CR>
 " adjust current window height
-nnoremap <leader>+  :exe "resize " . (winheight(0) * 5/4)<CR>
-nnoremap <leader>_  :exe "resize " . (winheight(0) * 4/5)<CR>
+nnoremap <leader>+  :exe "resize " . (winheight(0) * 13/12)<CR>
+nnoremap <leader>_  :exe "resize " . (winheight(0) * 12/13)<CR>
 
 " Fuzzy search file 
 nnoremap <c-p>     :Files<CR>
@@ -295,38 +377,75 @@ autocmd FileType python inoremap <buffer> <F9>
         \ <esc>:w<CR> :exec '!clear; python3' shellescape(@%, 1)<CR>
 
 
+" commenting blocks of code.
+augroup commenting_blocks_of_code
+    autocmd!
+    autocmd FileType c,cpp,java,scala let b:comment_leader = '// '
+    autocmd FileType sh,ruby,python   let b:comment_leader = '# '
+    autocmd FileType conf,fstab       let b:comment_leader = '# '
+    autocmd FileType tex              let b:comment_leader = '% '
+    autocmd FileType mail             let b:comment_leader = '> '
+    autocmd FileType vim              let b:comment_leader = '" '
+augroup END
+noremap <silent> cc :<C-B>silent
+        \ <C-E>s/^/<C-R>=escape(b:comment_leader,'\/')<CR>/<CR>:nohlsearch<CR>
+noremap <silent> cu :<C-B>silent
+        \ <C-E>s/^\V<C-R>=escape(b:comment_leader,'\/')<CR>//e<CR>:nohlsearch<CR>
+" commment (cc) and uncomment (cu) code 
+"noremap   <silent> cc      :s,^\(\s*\)[^# \t]\@=,\1# ,e<CR>:nohls<CR>zvj
+"noremap   <silent> cu      :s,^\(\s*\)# \s\@!,\1,e<CR>:nohls<CR>zv
 
 
+" NERDTree related commmand 
+noremap <C-\> :NERDTreeToggle<CR>
+noremap <leader>\ :NERDTreeFind<CR>
 
+" Newrd related command
 
+" switch to different windows
+" nnoremap <leader>h  <c-w>h
+" nnoremap <leader>j  <c-w>j
+" nnoremap <leader>k  <c-w>k
+" nnoremap <leader>l  <c-w>l
 
+nnoremap <c-h>  <c-w>h
+nnoremap <c-j>  <c-w>j
+nnoremap <c-k>  <c-w>k
+nnoremap <c-l>  <c-w>l
 
-
+nnoremap <S-h>  <c-w>h
+nnoremap <S-j>  <c-w>j
+nnoremap <S-k>  <c-w>k
+nnoremap <S-l>  <c-w>l
 
 " Unbind some useless/annoying default key bindings.
 nmap Q <Nop> " 'Q' in normal mode enters Ex mode. You almost never want this.
 " shut down arrow keys to prevent bad habits
+
 " Do this in normal mode...
 nnoremap <Left>  :echoe "Use h"<CR>
 nnoremap <Right> :echoe "Use l"<CR>
 nnoremap <Up>    :echoe "Use k"<CR>
 nnoremap <Down>  :echoe "Use j"<CR>
+
 " ...and in insert mode
-inoremap <Left>  <ESC>:echoe "Use h"<CR>
-inoremap <Right> <ESC>:echoe "Use l"<CR>
-inoremap <Up>    <ESC>:echoe "Use k"<CR>
-inoremap <Down>  <ESC>:echoe "Use j"<CR>
+" inoremap <Left>  <ESC>:echoe "Use h"<CR>
+" inoremap <Right> <ESC>:echoe "Use l"<CR>
+" inoremap <Up>    <ESC>:echoe "Use k"<CR>
+" inoremap <Down>  <ESC>:echoe "Use j"<CR>
 
 
+" ********** insertion mode remapping  *************
 
+" Setup exit of insertion mode
+" exit insersion mode with jk 
+inoremap jk <c-[>
 
-
-
-
-
-
-
-
+" handle autocomplete popup menu
+inoremap <expr> <CR>  pumvisible() ? "\<C-y>" : "\<CR>"
+inoremap <expr> <Esc> pumvisible() ? "\<C-y>" : "\<Esc>"
+inoremap <expr> <S-j> pumvisible() ? "\<C-n>" : "\<S-j>"
+inoremap <expr> <S-k> pumvisible() ? "\<C-p>" : "\<S-k>"
 
 
 

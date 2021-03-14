@@ -6,37 +6,65 @@ endsnippet
 # ********** for loop *********
 snippet for "for loop" b
 for ${1:item} in ${2:iterable}:
-	${3:${VISUAL:pass}}
+    ${3:${VISUAL:pass}}
 endsnippet
 
 # ********* If / Else / Elif ************
 snippet if "If" b
 if ${1:condition}:
-	${2:${VISUAL:pass}}
+    ${2:${VISUAL:pass}}
 endsnippet
 
 snippet ife "If / Else" b
 if ${1:condition}:
-	${2:${VISUAL:pass}}
+    ${2:${VISUAL:pass}}
 else:
-	${3:pass}
+    ${3:pass}
 endsnippet
 
 snippet ifee "If / Elif / Else" b
 if ${1:condition}:
-	${2:${VISUAL:pass}}
+    ${2:${VISUAL:pass}}
 elif ${3:condition}:
-	${4:pass}
+    ${4:pass}
 else:
-	${5:pass}
+    ${5:pass}
+endsnippet
+
+# ************* ifmain ***********
+snippet ifmain "ifmain" b
+if __name__ == "__main__":
 endsnippet
 
 # *************** Comments **************
-snippet \section "comment section" b
+snippet csec "comment section" b
 # *********** ${1: section}  ***********
+endsnippet
+snippet psec "print comment section" b
+print("*********** ${1: section}  ***********")
+endsnippet
+
+snippet usec "print with utility control comment section" b
+uti.section(${1: section})
+endsnippet
+
+snippet utitle "print with utility control comment title" b
+uti.title(${1: title})
+endsnippet
+
+snippet uhinfo "print with utility control head info of table"
+uti.headinfo(${1: df},name=${2: name},n=${3:10})
+endsnippet
+
+
+
+snippet docs "docstring in the front" b
+'''
+${1: documentation}
+'''
 endsnippet
 
 # ************* Assertion *************
-snippet assertF "assert False" 
-	assert False 
+snippet asF "assert False" 
+assert False 
 endsnippet

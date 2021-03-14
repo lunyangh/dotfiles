@@ -17,17 +17,78 @@ alias vim=/usr/local/bin/vim
 alias gcc='gcc-10'
 alias g++='g++-10'
 
-# tmux related alias
+t5='/Volumes/Ext_Data'
+
+# ****** tmux related alias *********
 # create a new session with name
 alias tn='tmux new-session -s'
 # attach to a session with name 
 alias ta='tmux attach -t' 
 # lists all ongoing sessions 
 alias tl='tmux list-sessions'
+# kill session 
+alias tk='tmux kill-session -t'
+
+# clear history, used within tmux panel
+alias tcls='tmux clear-history'
+
+
+# helper functions to run kaggle python docker image
+kbash() {
+    docker run \
+    -v $PWD:/Project/code \
+    -w=/Project/code \
+    --rm -it gcr.io/kaggle-images/python \
+    /bin/bash
+}
+
+kpython() {
+    docker run \
+    -v $PWD:/Project/code \
+    -w=/Project/code \
+    --rm -it gcr.io/kaggle-images/python \
+    python "$@" 
+}
+# -v mount current directory to /Project/code
+# -w set working directory to /Project/code
+# --rm remove container when it exits
+# --it allocate a pseudo-TTY connected to the container’s stdin; creating an interactive bash shell in the container
+# "$@" is the internal variable, thus function runs python in the environment 
+
+ikpython() {
+    docker run \
+    -v $PWD:/Project/code \
+    -w=/Project/code \
+    --rm -it gcr.io/kaggle-images/python \
+    ipython  
+}
+
+kjupyter() {
+    (sleep 3 && open "http://localhost:8888")& \
+    docker run \
+    -v $PWD:/Project/code \
+    -w=/Project/code \
+    -p 8888:8888 \
+    --rm -it gcr.io/kaggle-images/python \
+    jupyter notebook --no-browser --ip="0.0.0.0" \
+    --notebook-dir=/Project/code \
+    --allow-root
+}
+# (sleep 3 && open "http://$(docker-machine ip docker2):8888")& \
+# -p host_port:local_port: expose local_port to host_port 
+
+
 
 # set keybinding to vim 
-bindkey -v
-# bindkey -e
+# bindkey -v
+# enable emacs keybinding
+bindkey -e
+
+# open editor to edit long command 
+autoload -z edit-command-line
+zle -N edit-command-line
+bindkey "^X^Z" edit-command-line
+
 # Customize spaceship prompt 
 # ORDER
 SPACESHIP_PROMPT_ORDER=(
@@ -49,7 +110,7 @@ SPACESHIP_PROMPT_FIRST_PREFIX_SHOW=false
 #SPACESHIP_PROMPT_DEFAULT_PREFIX="@"
 #SPACESHIP_PROMPT_DEFAULT_SUFFIX=
 # CHAR
-SPACESHIP_CHAR_SYMBOL=">"
+SPACESHIP_CHAR_SYMBOL=">>"
 SPACESHIP_CHAR_PREFIX=""
 SPACESHIP_CHAR_SUFFIX=" "
 # USER
@@ -68,6 +129,7 @@ SPACESHIP_HOST_SUFFIX=" "
 SPACESHIP_DIR_PREFIX="" 
 SPACESHIP_DIR_SUFFIX=" "
 SPACESHIP_DIR_TRUNC=1 # show only last directory
+SPACESHIP_DIR_TRUNC_REPO=false # no special treatment of git repository
 SPACESHIP_DIR_COLOR='yellow'
 # GIT
 # Disable git symbol
@@ -124,12 +186,12 @@ SPACESHIP_PYENV_SUFFIX=" "
 SPACESHIP_PYENV_SYMBOL=""
 
 # Vi mode eabled 
-SPACESHIP_VI_MODE_SHOW=true
+SPACESHIP_VI_MODE_SHOW=false
 SPACESHIP_VI_MODE_INSERT='[I]'
 SPACESHIP_VI_MODE_NORMAL='[N]'
 SPACESHIP_VI_MODE_SUFFIX=""
 SPACESHIP_VI_MODE_COLOR='magenta'
-eval spaceship_vi_mode_enable
+# eval spaceship_vi_mode_enable
 # Source zsh autocomplete
 # source '$HOME/Dropbox (Personal)/Projects/Terminal/custom_package/zsh/zsh-autocomplete/zsh-autocomplete.plugin.zsh'
 
@@ -155,6 +217,7 @@ unset __conda_setup
 
 
 # why would you type 'cd dir' if you could just type 'dir'?
-setopt AUTO_CD
+# setopt AUTO_CD
+unsetopt AUTO_CD
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
