@@ -1,17 +1,35 @@
 {
-    "workbench.startupEditor": "newUntitledFile",
+    "workbench.startupEditor": "none",
+    "workbench.editor.enablePreview": false,
+    "window.restoreWindows": "all",
     "atomKeymap.promptV3Features": true,
-    "editor.multiCursorModifier": "ctrlCmd",
     "workbench.editorAssociations": [
         {
             "viewType": "jupyter.notebook.ipynb",
             "filenamePattern": "*.ipynb"
         }
     ],
-    "workbench.iconTheme": "material-icon-theme",
-    "editor.fontSize": 15,
+    "editor.fontSize": 14,
+    "terminal.integrated.fontSize": 16,
+
     "editor.wordWrap": "bounded",
-    "editor.wordWrapColumn": 120,
+    "editor.wordWrapColumn": 80,
     "editor.fontFamily": "FiraCode-Retina",
     "editor.fontLigatures": true,
+    "editor.rulers": [
+        80
+    ],
+
+    "editor.tabCompletion": "on",
+    "editor.autoClosingBrackets": "beforeWhitespace",
+
+    "workbench.iconTheme": "material-icon-theme",    
+    "workbench.colorTheme": "Atom One Dark",
+    "editor.tokenColorCustomizations": {
+        "[Atom One Dark]": {
+            "comments": "#07db72"
+        }
+    },
+    "jupyter.alwaysTrustNotebooks": true,
+    "jupyter.askForKernelRestart": false,
 }

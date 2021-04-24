@@ -114,5 +114,142 @@
         "key": "shift+a",
         "command": "explorer.newFolder",
         "when": "filesExplorerFocus && !inputFocus"
-    }    
+    },
+
+    // change font zoom not overall zoom 
+    {
+        "key": "cmd+=",
+        "command": "-workbench.action.zoomIn"
+    },
+    {
+        "key": "cmd+-",
+        "command": "-workbench.action.zoomOut"
+    },
+    {
+        "key": "cmd+=",
+        "command": "editor.action.fontZoomIn",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "cmd+-",
+        "command": "editor.action.fontZoomOut",
+        "when": "editorTextFocus"
+    },
+
+    // navigate split pane
+    {
+        "key": "ctrl+h",
+        "command": "workbench.action.navigateLeft"
+    },
+    {
+        "key": "ctrl+l",
+        "command": "workbench.action.navigateRight"
+    },
+    {
+        "key": "ctrl+k",
+        "command": "workbench.action.navigateUp"
+    },
+    {
+        "key": "ctrl+j",
+        "command": "workbench.action.navigateDown"
+    },
+
+    // ctrl+w + arrow to split 
+    {
+        "key": "ctrl+w right",
+        "command": "workbench.action.splitEditorRight"
+    },
+    {
+        "key": "cmd+k left",
+        "command": "-workbench.action.splitEditor"
+    },
+    {
+        "key": "ctrl+w left",
+        "command": "workbench.action.splitEditorLeft"
+    },
+    {
+        "key": "ctrl+w up",
+        "command": "workbench.action.splitEditorUp"
+    },
+    {
+        "key": "ctrl+w down",
+        "command": "workbench.action.splitEditorDown"
+    },
+    // disable atom extension hotkey 
+    {
+        "key": "shift+cmd+o",
+        "command": "-workbench.action.files.openFileFolder"
+    },
+    {
+        "key": "ctrl+pageup",
+        "command": "-workbench.action.previousEditor"
+    },
+    {
+        "key": "ctrl+pagedown",
+        "command": "-workbench.action.nextEditor"
+    },
+
+    // cmd+n and shift+cmd+n select next/previous occurrence of highlighted
+    {
+        "key": "shift+cmd+n",
+        "command": "-workbench.action.newWindow"
+    },
+    {
+        "key": "cmd+n",
+        "command": "-workbench.action.files.newUntitledFile"
+    },
+    {
+        "key": "cmd+n",
+        "command": "editor.action.nextSelectionMatchFindAction",
+        "when": "editorFocus"
+    },
+    {
+        "key": "cmd+f3",
+        "command": "-editor.action.nextSelectionMatchFindAction",
+        "when": "editorFocus"
+    },
+    {
+        "key": "shift+cmd+n",
+        "command": "editor.action.previousSelectionMatchFindAction",
+        "when": "editorFocus"
+    },
+    {
+        "key": "shift+cmd+f3",
+        "command": "-editor.action.previousSelectionMatchFindAction",
+        "when": "editorFocus"
+    },
+
+    // cmd+d: multicursor add next occurrence, cmd+shift+d multicursor: add previous occurrence 
+    {
+        "key": "shift+cmd+d",
+        "command": "-editor.action.copyLinesDownAction",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "shift+cmd+d",
+        "command": "editor.action.addSelectionToPreviousFindMatch",
+        "when": "editorFocus"
+    },
+    {
+        "key": "ctrl+shift+down",
+        "command": "-cursorColumnSelectDown",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "ctrl+shift+up",
+        "command": "-cursorColumnSelectUp",
+        "when": "editorTextFocus"
+    },
+    // remove some not useful keybindings
+    {
+        "key": "shift+alt+i",
+        "command": "-editor.action.insertCursorAtEndOfEachLineSelected",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "shift+cmd+l",
+        "command": "-editor.action.insertCursorAtEndOfEachLineSelected",
+        "when": "editorHasSelection && editorTextFocus"
+    }
+
 ]
