@@ -2,6 +2,8 @@
 export PATH="/usr/local/opt/ruby/bin:$PATH"
 export PATH="$HOME/.gem/ruby/2.7.0/bin:$PATH"
 
+# set groovy
+export GROOVY_HOME=/usr/local/opt/groovy/libexe
 # set default editor to vim
 export EDITOR=/usr/local/bin/vim
 export VISUAL=/usr/local/bin/vim
@@ -17,7 +19,16 @@ alias vim=/usr/local/bin/vim
 alias gcc='gcc-10'
 alias g++='g++-10'
 
+# ****** jupyter notebook related *********
+alias jb='jupyter notebook --notebook-dir=.'
+
+# setup ls colors
+export LSCOLORS=exfxfeaeBxxehehbadacea
+# export LSCOLORS=gxfxbEaEBxxEhEhBaDaCaD
+
+
 t5='/Volumes/Ext_Data'
+
 
 # ****** tmux related alias *********
 # create a new session with name
@@ -33,50 +44,8 @@ alias tk='tmux kill-session -t'
 alias tcls='tmux clear-history'
 
 
-# helper functions to run kaggle python docker image
-kbash() {
-    docker run \
-    -v $PWD:/Project/code \
-    -w=/Project/code \
-    --rm -it gcr.io/kaggle-images/python \
-    /bin/bash
-}
-
-kpython() {
-    docker run \
-    -v $PWD:/Project/code \
-    -w=/Project/code \
-    --rm -it gcr.io/kaggle-images/python \
-    python "$@" 
-}
-# -v mount current directory to /Project/code
-# -w set working directory to /Project/code
-# --rm remove container when it exits
-# --it allocate a pseudo-TTY connected to the container’s stdin; creating an interactive bash shell in the container
-# "$@" is the internal variable, thus function runs python in the environment 
-
-ikpython() {
-    docker run \
-    -v $PWD:/Project/code \
-    -w=/Project/code \
-    --rm -it gcr.io/kaggle-images/python \
-    ipython  
-}
-
-kjupyter() {
-    (sleep 3 && open "http://localhost:8888")& \
-    docker run \
-    -v $PWD:/Project/code \
-    -w=/Project/code \
-    -p 8888:8888 \
-    --rm -it gcr.io/kaggle-images/python \
-    jupyter notebook --no-browser --ip="0.0.0.0" \
-    --notebook-dir=/Project/code \
-    --allow-root
-}
-# (sleep 3 && open "http://$(docker-machine ip docker2):8888")& \
-# -p host_port:local_port: expose local_port to host_port 
-
+# helper functions to run docker compose
+alias dcrun='docker-compose run --service-ports --rm'
 
 
 # set keybinding to vim 
@@ -221,3 +190,4 @@ unset __conda_setup
 unsetopt AUTO_CD
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+

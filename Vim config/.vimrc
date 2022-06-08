@@ -181,7 +181,6 @@ let g:airline_symbols.linenr = ''
 let &t_8f = "\<Esc>[38:2:%lu:%lu:%lum"
 let &t_8b = "\<Esc>[48:2:%lu:%lu:%lum"
 
-
 " change comment color in onedark.vim colorscheme
 if (has("autocmd"))
   augroup colorextend
@@ -216,7 +215,7 @@ augroup markdownhighlight
     autocmd Syntax markdown syn match markdownListMarker "\%(\t\| \{0,\}\)[-*+]\%(\s\+\S\)\@=" contained
 augroup end
 " syntax highlight of code in fenced block 
-let g:markdown_fenced_languages=['python','bash=sh']
+let g:markdown_fenced_languages=['python','bash=sh','{r}=r','r=r']
 
 " ********** recognize specific filetype *************
 
@@ -228,6 +227,7 @@ augroup end
 
 " *********** Other setup **********
 " tab/space setup
+set tabstop=4           " always tab to space
 set softtabstop=4       " tab to space 
 set shiftwidth=4        " Tab key indents by 4 spaces
 set expandtab           " insert spaces when type tabs 
@@ -238,10 +238,21 @@ set shiftround          " >> indents adjust to multiple of 'shiftwidth'
 let g:pyindent_open_paren=shiftwidth()
 
 " file type specific tab/space 
-"augroup tab_space_mapping
-"    autocmd! " remove all autocommand within group
-"    autocmd FileType sshconfig setlocal shiftwidth=4 softabstop=4 
-"augroup END
+augroup tab_space_mapping
+    " remove all autocommand within group
+    autocmd! 
+"     autocmd FileType sshconfig setlocal shiftwidth=4 softabstop=4 
+    autocmd FileType yaml setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab 
+" makefile demands use of tabs
+    autocmd FileType make setlocal tabstop=8 softtabstop=0 shiftwidth=8 noexpandtab
+augroup END
+
+" file type specific maximum line width 
+augroup maximum_column 
+    " remove all autocommand within group
+    autocmd! 
+    autocmd FileType python setlocal textwidth=80 colorcolumn=80 
+augroup END
 
 " clipboard 
 " with this option, the unnamed register coincides with the clipboard
@@ -250,7 +261,8 @@ set clipboard=unnamed
 
 " indent 
 set autoindent          " Indent according to previous line
-set smartindent         " Smart indent accoding to file type 
+" set smartindent         " Smart indent accoding to file type 
+" set cindent             " set indent according to C style, smartindent would not indent comments starts with #
 " Show line numbers.
 set breakindent         " softwrapped lines will visually indented
 set number
@@ -364,8 +376,8 @@ nnoremap <leader>l  :Lines<CR> " search Lines
 nnoremap <leader>=  :exe "vertical resize " . (winwidth(0) * 13/12)<CR>
 nnoremap <leader>-  :exe "vertical resize " . (winwidth(0) * 12/13)<CR>
 " adjust current window height
-nnoremap <leader>+  :exe "resize " . (winheight(0) * 13/12)<CR>
-nnoremap <leader>_  :exe "resize " . (winheight(0) * 12/13)<CR>
+nnoremap <leader><S-+>  :exe "resize " . (winheight(0) * 13/12)<CR>
+nnoremap <leader><S-->  :exe "resize " . (winheight(0) * 12/13)<CR>
 
 " Fuzzy search file 
 nnoremap <c-p>     :Files<CR>
@@ -380,12 +392,14 @@ autocmd FileType python inoremap <buffer> <F9>
 " commenting blocks of code.
 augroup commenting_blocks_of_code
     autocmd!
-    autocmd FileType c,cpp,java,scala let b:comment_leader = '// '
-    autocmd FileType sh,ruby,python   let b:comment_leader = '# '
+    autocmd FileType c,cpp,java,scala,groovy let b:comment_leader = '// '
+    autocmd FileType sh,ruby,python,r   let b:comment_leader = '# '
     autocmd FileType conf,fstab       let b:comment_leader = '# '
     autocmd FileType tex              let b:comment_leader = '% '
     autocmd FileType mail             let b:comment_leader = '> '
     autocmd FileType vim              let b:comment_leader = '" '
+    autocmd FileType dockerfile       let b:comment_leader = '# '
+    autocmd FileType yaml             let b:comment_leader = '# '
 augroup END
 noremap <silent> cc :<C-B>silent
         \ <C-E>s/^/<C-R>=escape(b:comment_leader,'\/')<CR>/<CR>:nohlsearch<CR>
@@ -412,14 +426,34 @@ nnoremap <c-h>  <c-w>h
 nnoremap <c-j>  <c-w>j
 nnoremap <c-k>  <c-w>k
 nnoremap <c-l>  <c-w>l
+" same key window mapping for temrinal mode
+tnoremap <c-h>  <c-w>h
+tnoremap <c-j>  <c-w>j
+tnoremap <c-k>  <c-w>k
+tnoremap <c-l>  <c-w>l
 
 nnoremap <S-h>  <c-w>h
 nnoremap <S-j>  <c-w>j
 nnoremap <S-k>  <c-w>k
 nnoremap <S-l>  <c-w>l
 
+" Store relative line number jumps via 'j/k' in the jumplist.
+" Issue. by default movement like '10k' is not a jump motion, see :help jumps
+" as a result, special register `` does not store such jump, and we can not
+" use `` to jump back and forth
+" Solution. we add j/k more than 1 line into jump motion by set the marker `
+nnoremap <expr> k (v:count > 1 ? "m'" . v:count : '') . 'k'
+nnoremap <expr> j (v:count > 1 ? "m'" . v:count : '') . 'j'
+
 " Unbind some useless/annoying default key bindings.
 nmap Q <Nop> " 'Q' in normal mode enters Ex mode. You almost never want this.
+
+" gk/gi moves up down by visual line, j/k moves by actual line 
+" difference when there is line wrap
+" if count = 0, move by visual line, otherwise actual line
+nnoremap <expr> k (v:count == 0 ? 'gk' : 'k')
+nnoremap <expr> j (v:count == 0 ? 'gj' : 'j')
+
 " shut down arrow keys to prevent bad habits
 
 " Do this in normal mode...
@@ -427,6 +461,7 @@ nnoremap <Left>  :echoe "Use h"<CR>
 nnoremap <Right> :echoe "Use l"<CR>
 nnoremap <Up>    :echoe "Use k"<CR>
 nnoremap <Down>  :echoe "Use j"<CR>
+
 
 " ...and in insert mode
 " inoremap <Left>  <ESC>:echoe "Use h"<CR>
@@ -442,10 +477,10 @@ nnoremap <Down>  :echoe "Use j"<CR>
 inoremap jk <c-[>
 
 " handle autocomplete popup menu
-inoremap <expr> <CR>  pumvisible() ? "\<C-y>" : "\<CR>"
-inoremap <expr> <Esc> pumvisible() ? "\<C-y>" : "\<Esc>"
-inoremap <expr> <S-j> pumvisible() ? "\<C-n>" : "\<S-j>"
-inoremap <expr> <S-k> pumvisible() ? "\<C-p>" : "\<S-k>"
+inoremap <expr> <CR>  pumvisible() ? "\<C-y>":"\<CR>"
+inoremap <expr> <Esc> pumvisible() ? "\<C-y>\<Esc>":"\<Esc>"
+inoremap <expr> <S-j> pumvisible() ? "\<C-n>":"\<S-j>"
+inoremap <expr> <S-k> pumvisible() ? "\<C-p>":"\<S-k>"
 
 
 

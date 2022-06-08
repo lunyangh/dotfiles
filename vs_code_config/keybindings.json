@@ -250,6 +250,40 @@
         "key": "shift+cmd+l",
         "command": "-editor.action.insertCursorAtEndOfEachLineSelected",
         "when": "editorHasSelection && editorTextFocus"
-    }
+    },
+    {
+        "key": "alt+cmd+up",
+        "command": "notebook.cell.moveUp",
+        "when": "notebookEditorFocused && !inputFocus"
+    },
+    {
+        "key": "alt+up",
+        "command": "-notebook.cell.moveUp",
+        "when": "notebookEditorFocused && !inputFocus"
+    },
+    // vim like jump list ctrl + o/i, 
+    {
+        "key": "ctrl+o",
+        "command": "-lineBreakInsert",
+        "when": "textInputFocus && !editorReadonly"
+    },
+    {
+        "key": "ctrl+o",
+        "command": "workbench.action.navigateForward"
+    },
+    {
+        "key": "ctrl+i",
+        "command": "workbench.action.navigateBack"
+    },
+
+    // vim like alternative file 
+    {
+        "key": "ctrl+6",
+        "command": "workbench.action.quickOpenPreviousRecentlyUsedEditorInGroup"
+    },
+    {
+        "key": "ctrl+6",
+        "command": "-workbench.action.openEditorAtIndex6"
+    },
 
 ]
