@@ -1,0 +1,383 @@
+// Place your key bindings in this file to override the defaults
+[
+    // toggle multiple cursors
+    {
+        "key": "alt+cmd+down",
+        "command": "workbench.action.terminal.focusNext",
+        "when": "terminalFocus && terminalProcessSupported"
+    },
+    {
+        "key": "alt+cmd+up",
+        "command": "workbench.action.terminal.focusPrevious",
+        "when": "terminalFocus && terminalProcessSupported"
+    },
+    {
+        "key": "alt+cmd+down",
+        "command": "-workbench.action.terminal.focusNextPane",
+        "when": "terminalFocus && terminalProcessSupported"
+    },
+    {
+        "key": "alt+cmd+up",
+        "command": "-workbench.action.terminal.focusPreviousPane",
+        "when": "terminalFocus && terminalProcessSupported"
+    },
+
+    // mutliple cursors
+    {
+        "key": "alt+up",
+        "command": "editor.action.insertCursorAbove",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "alt+cmd+up",
+        "command": "-editor.action.insertCursorAbove",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "alt+down",
+        "command": "editor.action.insertCursorBelow",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "alt+cmd+down",
+        "command": "-editor.action.insertCursorBelow",
+        "when": "editorTextFocus"
+    },
+
+    // disable default split pane 
+    {
+        "key": "cmd+\\",
+        "command": "-workbench.action.splitEditor"
+    },
+    {
+        "key": "cmd+k cmd+\\",
+        "command": "-workbench.action.splitEditorOrthogonal"
+    },
+    {
+        "key": "cmd+\\",
+        "command": "-workbench.action.terminal.split",
+        "when": "terminalFocus && terminalProcessSupported"
+    },
+
+    // set ctrl + \ to show left side bar 
+    {
+        "key": "ctrl+\\",
+        "command": "workbench.action.toggleSidebarVisibility"
+    },
+    {
+        "key": "cmd+b",
+        "command": "-workbench.action.toggleSidebarVisibility"
+    },
+    {
+        "key": "cmd+\\",
+        "command": "workbench.action.toggleSidebarVisibility"
+    },
+    {
+        "key": "cmd+k cmd+b",
+        "command": "-workbench.action.toggleSidebarVisibility"
+    },
+    // toggle line comment use cmd + /
+    {
+        "key": "shift+cmd+7",
+        "command": "-editor.action.commentLine",
+        "when": "editorTextFocus"
+    },
+    // create new file/folders in explorer
+    {
+        "key": "a",
+        "command": "explorer.newFile",
+        "when": "filesExplorerFocus && !inputFocus"
+    },
+    {
+        "key": "shift+a",
+        "command": "explorer.newFolder",
+        "when": "filesExplorerFocus && !inputFocus"
+    },
+
+    // change font zoom not overall zoom 
+    {
+        "key": "cmd+=",
+        "command": "-workbench.action.zoomIn"
+    },
+    {
+        "key": "cmd+-",
+        "command": "-workbench.action.zoomOut"
+    },
+    {
+        "key": "ctrl+=",
+        "command": "editor.action.fontZoomIn",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "ctrl+-",
+        "command": "editor.action.fontZoomOut",
+        "when": "editorTextFocus"
+    },
+
+    // navigate split pane
+    {
+        "key": "ctrl+h",
+        "command": "workbench.action.navigateLeft"
+    },
+    {
+        "key": "ctrl+l",
+        "command": "workbench.action.navigateRight"
+    },
+    {
+        "key": "ctrl+k",
+        "command": "workbench.action.navigateUp"
+    },
+    {
+        "key": "ctrl+j",
+        "command": "workbench.action.navigateDown"
+    },
+
+
+    // ctrl+w + arrow to split 
+    // get rid of default
+    {
+        "key": "cmd+k left",
+        "command": "-workbench.action.splitEditor"
+    },
+
+    // ctrl + w arrow key
+    {
+        "key": "ctrl+w right",
+        "command": "workbench.action.splitEditorRight"
+    },
+    {
+        "key": "ctrl+w left",
+        "command": "workbench.action.splitEditorLeft"
+    },
+    {
+        "key": "ctrl+w up",
+        "command": "workbench.action.splitEditorUp"
+    },
+    {
+        "key": "ctrl+w down",
+        "command": "workbench.action.splitEditorDown"
+    },
+    // ctrl + w + hjkl to split windows
+    {
+        "key": "ctrl+w shift+l",
+        "command": "workbench.action.splitEditorRight"
+    },
+    {
+        "key": "ctrl+w shift+h",
+        "command": "workbench.action.splitEditorLeft"
+    },
+    {
+        "key": "ctrl+w shift+j",
+        "command": "workbench.action.splitEditorUp"
+    },
+    {
+        "key": "ctrl+w shift+k",
+        "command": "workbench.action.splitEditorDown"
+    },
+    // split and move window to group
+    {
+        "key": "ctrl+w l",
+        "command": "workbench.action.moveEditorToRightGroup"
+    },
+    {
+        "key": "ctrl+w h",
+        "command": "workbench.action.moveEditorToLeftGroup"
+    },
+    {
+        "key": "ctrl+w j",
+        "command": "workbench.action.moveEditorToAboveGroup"
+    },
+    {
+        "key": "ctrl+w k",
+        "command": "workbench.action.moveEditorToBelowGroup"
+    },
+
+    // close editor
+    {
+        "key": "ctrl+w w",
+        "command": "workbench.action.closeActiveEditor"
+    },
+
+    // build latex file with latex builder  
+    {
+        "key": "ctrl+w b",
+        "command": "latex-workshop.build"
+    },
+    // toggle editors in the same group
+    {
+        "key": "ctrl+pageup",
+        "command": "workbench.action.previousEditor"
+    },
+    {
+        "key": "ctrl+pagedown",
+        "command": "workbench.action.nextEditor"
+    },
+
+    // disable atom extension hotkey 
+    {
+        "key": "shift+cmd+o",
+        "command": "-workbench.action.files.openFileFolder"
+    },
+
+    // cmd+n and shift+cmd+n select next/previous occurrence of highlighted
+    {
+        "key": "shift+cmd+n",
+        "command": "-workbench.action.newWindow"
+    },
+    {
+        "key": "cmd+n",
+        "command": "-workbench.action.files.newUntitledFile"
+    },
+    {
+        "key": "cmd+n",
+        "command": "editor.action.nextSelectionMatchFindAction",
+        "when": "editorFocus"
+    },
+    {
+        "key": "cmd+f3",
+        "command": "-editor.action.nextSelectionMatchFindAction",
+        "when": "editorFocus"
+    },
+    {
+        "key": "shift+cmd+n",
+        "command": "editor.action.previousSelectionMatchFindAction",
+        "when": "editorFocus"
+    },
+    {
+        "key": "shift+cmd+f3",
+        "command": "-editor.action.previousSelectionMatchFindAction",
+        "when": "editorFocus"
+    },
+
+    // remove some not useful keybindings
+    {
+        "key": "shift+alt+i",
+        "command": "-editor.action.insertCursorAtEndOfEachLineSelected",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "shift+cmd+l",
+        "command": "-editor.action.insertCursorAtEndOfEachLineSelected",
+        "when": "editorHasSelection && editorTextFocus"
+    },
+    {
+        "key": "alt+cmd+up",
+        "command": "notebook.cell.moveUp",
+        "when": "notebookEditorFocused && !inputFocus"
+    },
+    {
+        "key": "alt+up",
+        "command": "-notebook.cell.moveUp",
+        "when": "notebookEditorFocused && !inputFocus"
+    },
+    // vim like alternative file 
+    {
+        "key": "ctrl+6",
+        "command": "workbench.action.quickOpenPreviousRecentlyUsedEditorInGroup"
+    },
+    {
+        "key": "ctrl+6",
+        "command": "-workbench.action.openEditorAtIndex6"
+    },
+
+    // setting copied from https://github.com/VSCodeVim/Vim/pull/3623, help with moving in wrap line
+    {
+        "key": "up",
+        "command": "cursorUp",
+        "when": "editorTextFocus && vim.active && !inDebugRepl && vim.mode == 'Insert' &&!suggestWidgetMultipleSuggestions && !suggestWidgetVisible"
+    },
+    {
+        "key": "down",
+        "command": "cursorDown",
+        "when": "editorTextFocus && vim.active && !inDebugRepl && vim.mode == 'Insert' && !suggestWidgetMultipleSuggestions && !suggestWidgetVisible"
+    },
+    // address interfere between autocomplete and snippet jumps
+    // basically moving confirming autocomplete to enter always, use tab for placeholder switch
+    // this is important for writing latex
+    // {
+    //     "key": "enter",
+    //     "command": "insertSnippet",
+    //     "when": "editorTextFocus && hasSnippetCompletions && !editorTabMovesFocus && !inSnippetMode"
+    // },
+    {
+        "key": "tab",
+        "command": "-insertSnippet",
+        "when": "editorTextFocus && hasSnippetCompletions && !editorTabMovesFocus && !inSnippetMode"
+    },
+    //
+    // {
+    //     "key": "enter",
+    //     "command": "editor.action.inlineSuggest.commit",
+    //     "when": "inlineSuggestionHasIndentationLessThanTabSize && inlineSuggestionVisible && !editorTabMovesFocus"
+    // },
+    {
+        "key": "tab",
+        "command": "-editor.action.inlineSuggest.commit",
+        "when": "inlineSuggestionHasIndentationLessThanTabSize && inlineSuggestionVisible && !editorTabMovesFocus"
+    },
+    //
+    // {
+    //     "key": "enter",
+    //     "command": "acceptSelectedSuggestion",
+    //     "when": "suggestWidgetHasFocusedSuggestion && suggestWidgetVisible && textInputFocus"
+    // },
+    {
+        "key": "tab",
+        "command": "-acceptSelectedSuggestion",
+        "when": "suggestWidgetHasFocusedSuggestion && suggestWidgetVisible && textInputFocus"
+    },
+    //
+    // {
+    //     "key": "shift+enter",
+    //     "command": "acceptAlternativeSelectedSuggestion",
+    //     "when": "suggestWidgetHasFocusedSuggestion && suggestWidgetVisible && textInputFocus"
+    // },
+    {
+        "key": "shift+tab",
+        "command": "-acceptAlternativeSelectedSuggestion",
+        "when": "suggestWidgetHasFocusedSuggestion && suggestWidgetVisible && textInputFocus"
+    },
+    //
+    // {
+    //     "key": "enter",
+    //     "command": "insertBestCompletion",
+    //     "when": "atEndOfWord && textInputFocus && !hasOtherSuggestions && !inSnippetMode && !suggestWidgetVisible && config.editor.tabCompletion == 'on'"
+    // },
+    {
+        "key": "tab",
+        "command": "-insertBestCompletion",
+        "when": "atEndOfWord && textInputFocus && !hasOtherSuggestions && !inSnippetMode && !suggestWidgetVisible && config.editor.tabCompletion == 'on'"
+    },    
+    //
+    // {
+    //     "key": "enter",
+    //     "command": "insertNextSuggestion",
+    //     "when": "hasOtherSuggestions && textInputFocus && !inSnippetMode && !suggestWidgetVisible && config.editor.tabCompletion == 'on'"
+    // },
+    {
+        "key": "tab",
+        "command": "-insertNextSuggestion",
+        "when": "hasOtherSuggestions && textInputFocus && !inSnippetMode && !suggestWidgetVisible && config.editor.tabCompletion == 'on'"
+    },
+    //
+
+    // {
+    //     "key": "shift+enter",
+    //     "command": "insertPrevSuggestion",
+    //     "when": "hasOtherSuggestions && textInputFocus && !inSnippetMode && !suggestWidgetVisible && config.editor.tabCompletion == 'on'"
+    // },
+    {
+        "key": "shift+tab",
+        "command": "-insertPrevSuggestion",
+        "when": "hasOtherSuggestions && textInputFocus && !inSnippetMode && !suggestWidgetVisible && config.editor.tabCompletion == 'on'"
+    },
+    {
+        "key": "ctrl+r",
+        "command": "-workbench.action.openRecent"
+    },
+    //
+
+
+
+]
+    
