@@ -192,6 +192,12 @@ The key adjustment here aims to mimic windows keyboard with the key adjustment
     "command": "workbench.action.closeActiveEditor"
   },
   {
+    "key": "alt+w",
+    "command": "workbench.action.closeGroup",
+    "when": "activeEditorGroupEmpty && multipleEditorGroups"
+  },
+
+  {
     "key": "ctrl+space w",
     "command": "workbench.action.closeActiveEditor"
   },
@@ -836,7 +842,7 @@ The key adjustment here aims to mimic windows keyboard with the key adjustment
   /* debug related */
   // debug console now accepts command with shift + enter
   {
-    "key": "shift+enter",
+    "key": "ctrl+enter",
     "command": "repl.action.acceptInput",
     "when": "inDebugRepl && textInputFocus"
   },
@@ -844,6 +850,61 @@ The key adjustment here aims to mimic windows keyboard with the key adjustment
     "key": "enter",
     "command": "-repl.action.acceptInput",
     "when": "inDebugRepl && textInputFocus"
+  },
+  {
+    "key": "alt+a e",
+    "command": "editor.debug.action.selectionToRepl"
+  },
+  {
+    "key": "alt+a d",
+    "command": "workbench.action.debug.start",
+    "when": "debuggersAvailable && debugState == 'inactive'"
+  },
+  {
+    "key": "alt+a shift d",
+    "command": "-workbench.action.debug.selectandstart",
+    "when": "debuggersAvailable && debugState == 'inactive'"
+  },
+
+  {
+    "key": "alt+a d",
+    "command": "wordkbench.action.debug.continue",
+    "when": "debugState == 'stopped'"
+  },
+  {
+    "key": "f5",
+    "command": "-workbench.action.debug.continue",
+    "when": "debugState == 'stopped'"
+  },
+  {
+    "key": "alt+a q",
+    "command": "workbench.action.debug.stop",
+    "when": "inDebugMode && !focusedSessionIsAttach"
+  },
+  {
+    "key": "shift+f5",
+    "command": "-workbench.action.debug.stop",
+    "when": "inDebugMode && !focusedSessionIsAttach"
+  },
+  {
+    "key": "alt+a n",
+    "command": "workbench.action.debug.stepInto",
+    "when": "debugState != 'inactive'"
+  },
+  {
+    "key": "f11",
+    "command": "-workbench.action.debug.stepInto",
+    "when": "debugState != 'inactive'"
+  },
+  {
+    "key": "alt+a p",
+    "command": "workbench.action.debug.stepOut",
+    "when": "debugState == 'stopped'"
+  },
+  {
+    "key": "shift+f11",
+    "command": "workbench.action.debug.stepOut",
+    "when": "debugState == 'stopped'"
   },
 
   /* extension related */
@@ -1030,6 +1091,8 @@ The key adjustment here aims to mimic windows keyboard with the key adjustment
 /* related reference for configure some keys 
 
 alt + letter key generates special letter in mac not key shortcut.
+but it seems vscode can get around this automatically, after setting alt+w as close window, it does not output strange letter but close window.
+
 https://stackoverflow.com/questions/60870113/mac-generating-%E2%88%86%CB%9A%C2%AC-characters-instead-of-executing-vscode-shortcuts-that-involve?ref=caspertsui.blog
 
 
