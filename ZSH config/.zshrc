@@ -16,11 +16,11 @@ fi
 # Customize to your needs...
 alias vi=/usr/local/bin/vim
 alias vim=/usr/local/bin/vim
-alias gcc='gcc-10'
-alias g++='g++-10'
+alias gcc='gcc-11'
+alias g++='g++-11'
 
 # ****** jupyter notebook related *********
-alias jb='jupyter notebook --notebook-dir=.'
+alias jb='jupyter lab --notebook-dir=.'
 
 # setup ls colors
 export LSCOLORS=exfxfeaeBxxehehbadacea
@@ -164,21 +164,31 @@ SPACESHIP_VI_MODE_COLOR='magenta'
 # Source zsh autocomplete
 # source '$HOME/Dropbox (Personal)/Projects/Terminal/custom_package/zsh/zsh-autocomplete/zsh-autocomplete.plugin.zsh'
 
-
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$("$HOME/anaconda3/bin/conda" 'shell.zsh' 'hook' 2> /dev/null)"
+__conda_setup="$('/Users/lunyanghuang/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
-    if [ -f "$HOME/anaconda3/etc/profile.d/conda.sh" ]; then
-        . "$HOME/anaconda3/etc/profile.d/conda.sh"
+    if [ -f "/Users/lunyanghuang/anaconda3/etc/profile.d/conda.sh" ]; then
+        echo "reach first option"
+        . "/Users/lunyanghuang/anaconda3/etc/profile.d/conda.sh"
     else
-        export PATH="$HOME/anaconda3/bin:$PATH"
+        echo "reach export conda path"
+        export PATH="/Users/lunyanghuang/anaconda3/bin:$PATH"
     fi
 fi
 unset __conda_setup
 # <<< conda initialize <<<
+
+# see last answer by https://stackoverflow.com/questions/57660263/tmux-recognised-conda-env-but-still-use-the-default-pytho://stackoverflow.com/questions/57660263/tmux-recognised-conda-env-but-still-use-the-default-python 
+# add below lines at tail of your ~/.zshrc file, this for handling tmux
+function conda_deactivate_all() {
+        while [ -n "$CONDA_PREFIX" ]; do
+                    conda deactivate;
+                        done
+                    }
+[[ -z $TMUX ]] || conda_deactivate_all; conda activate base
 
 # export PS1='%n-%1~:'
 
@@ -190,4 +200,85 @@ unset __conda_setup
 unsetopt AUTO_CD
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+
+
+# j command works on cd 
+
+j() {
+  local bookmarks="$HOME/.bookmarks"
+
+  if [[ ! -f "$bookmarks" ]]; then
+    touch "$bookmarks"
+  fi
+
+  if [[ "$*" =~ "(-h|--help)" ]]; then
+    read -r -d "" usage << EOT
+USAGE:
+  j [ARGUMENT] [OPTIONS]
+ARGUMENT:
+  Name of book mark to cd into.
+OPTIONS:
+  -h, --help          Display usage text.
+  -l                  Display all bookmarks.
+  -d <bookmark>       Bookmark to delete.
+  -c <bookmark>       Bookmark to create.
+EOT
+
+    echo "$usage"
+    return
+  fi
+
+  case $1 in
+    "-l")
+      cat "$bookmarks"
+      ;;
+
+    "-c")
+      if [[ -z "$2" ]]; then
+        echo "Missing argument for -c" 
+        return
+      fi
+      
+      local bookmark="${2}=$(pwd)"
+      if [[ -z $(grep "$bookmark" "$bookmarks") ]]; then
+        echo $bookmark >> $bookmarks
+        echo $bookmark
+      else
+        echo "Bookmark '$bookmark' already exists."
+      fi
+      ;;
+
+    "-d")
+      local pat="/^$2=.*/d"
+      sed -i "" "$pat" "$bookmarks"
+      cat "$bookmarks"
+      ;;
+
+    *)
+      local target=$(grep "$1=" "$HOME/.bookmarks")
+      local result=${target/$1=/}
+      cd "$result"
+      ;;
+  esac
+}
+
+
+
+
+source /Users/lunyanghuang/htcondor/condor/condor.sh
+
+
+# init zoxide
+eval "$(zoxide init zsh)"
+
+
+
+
+
+
+
+
+
+
 
