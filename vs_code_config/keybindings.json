@@ -1085,6 +1085,174 @@ The key adjustment here aims to mimic windows keyboard with the key adjustment
     "key": "shift+tab",
     "command": "-insertPrevSuggestion",
     "when": "hasOtherSuggestions && textInputFocus && !inSnippetMode && !suggestWidgetVisible && config.editor.tabCompletion == 'on'"
+  },
+
+  /*  --- Terminal Command Key Remappings to Control Key ---
+    These mappings make Command+Key combinations in the VS Code integrated terminal
+    behave like Control+Key combinations, which is standard in many terminal applications.
+    The 'when' clause ensures these only apply when the terminal is focused.
+    Cmd+A sends Ctrl+A (Start of Heading, often used for "go to beginning of line")    
+    */
+  {
+    "key": "cmd+a",
+    "command": "workbench.action.terminal.sendSequence",
+    "args": { "text": "\u0001" },
+    "when": "terminalFocus"
+  },
+  // Cmd+B sends Ctrl+B (Start of Text, often used for "move back character" in Emacs mode)
+  {
+    "key": "cmd+b",
+    "command": "workbench.action.terminal.sendSequence",
+    "args": { "text": "\u0002" },
+    "when": "terminalFocus"
+  },
+  // Cmd+C sends Ctrl+C (Interrupt/SIGINT) when no text is selected.
+  // This allows you to terminate running processes with Cmd+C, common in terminals.
+  {
+    "key": "cmd+c",
+    "command": "workbench.action.terminal.sendSequence",
+    "args": { "text": "\u0003" }, // Unicode for Ctrl+C (ETX)
+    "when": "terminalFocus && !terminalTextSelected"
+  },
+  // Cmd+C performs standard copy when text IS selected.
+  // This maintains the expected copy behavior for selected text in the terminal.
+  {
+    "key": "cmd+c",
+    "command": "workbench.action.terminal.copySelection",
+    "when": "terminalFocus && terminalTextSelected"
+  },
+  // Cmd+D sends Ctrl+D (End of Transmission, often used for "exit" or "delete char forward")
+  {
+    "key": "cmd+d",
+    "command": "workbench.action.terminal.sendSequence",
+    "args": { "text": "\u0004" },
+    "when": "terminalFocus"
+  },
+  // Cmd+E sends Ctrl+E (Enquiry, often used for "go to end of line")
+  {
+    "key": "cmd+e",
+    "command": "workbench.action.terminal.sendSequence",
+    "args": { "text": "\u0005" },
+    "when": "terminalFocus"
+  },
+  // Cmd+F sends Ctrl+F (Acknowledge, often used for "move forward character" in Emacs mode)
+  {
+    "key": "cmd+f",
+    "command": "workbench.action.terminal.sendSequence",
+    "args": { "text": "\u0006" },
+    "when": "terminalFocus"
+  },
+  // Cmd+H sends Ctrl+H (Backspace, often used for "delete char backward")
+  {
+    "key": "cmd+h",
+    "command": "workbench.action.terminal.sendSequence",
+    "args": { "text": "\u0008" }, // Unicode for Ctrl+H (Backspace)
+    "when": "terminalFocus"
+  },
+  // Cmd+K sends Ctrl+K (Vertical Tab, often used for "clear line from cursor to end")
+  {
+    "key": "cmd+k",
+    "command": "workbench.action.terminal.sendSequence",
+    "args": { "text": "\u000b" },
+    "when": "terminalFocus"
+  },
+  // Cmd+L sends Ctrl+L (Form Feed, often used for "clear screen")
+  {
+    "key": "cmd+l",
+    "command": "workbench.action.terminal.sendSequence",
+    "args": { "text": "\u000c" },
+    "when": "terminalFocus"
+  },
+  // Cmd+N sends Ctrl+N (Shift Out, often used for "next history item")
+  {
+    "key": "cmd+n",
+    "command": "workbench.action.terminal.sendSequence",
+    "args": { "text": "\u000e" },
+    "when": "terminalFocus"
+  },
+  // Cmd+P sends Ctrl+P (Data Link Escape, often used for "previous history item")
+  {
+    "key": "cmd+p",
+    "command": "workbench.action.terminal.sendSequence",
+    "args": { "text": "\u0010" },
+    "when": "terminalFocus"
+  },
+  // Cmd+R sends Ctrl+R (Device Control 2, often used for "reverse search history")
+  {
+    "key": "cmd+r",
+    "command": "workbench.action.terminal.sendSequence",
+    "args": { "text": "\u0012" },
+    "when": "terminalFocus"
+  },
+  // Cmd+U sends Ctrl+U (Negative Acknowledge, often used for "clear line from cursor to beginning")
+  {
+    "key": "cmd+u",
+    "command": "workbench.action.terminal.sendSequence",
+    "args": { "text": "\u0015" },
+    "when": "terminalFocus"
+  },
+  // Cmd+W sends Ctrl+W (End of Medium, often used for "delete word backward")
+  {
+    "key": "cmd+w",
+    "command": "workbench.action.terminal.sendSequence",
+    "args": { "text": "\u0017" },
+    "when": "terminalFocus"
+  },
+  // Cmd+X sends Ctrl+X (Cancel)
+  {
+    "key": "cmd+x",
+    "command": "workbench.action.terminal.sendSequence",
+    "args": { "text": "\u0018" },
+    "when": "terminalFocus"
+  },
+  // Cmd+Y sends Ctrl+Y (End of Medium)
+  {
+    "key": "cmd+y",
+    "command": "workbench.action.terminal.sendSequence",
+    "args": { "text": "\u0019" },
+    "when": "terminalFocus"
+  },
+  // Cmd+Z sends Ctrl+Z (Substitute/Suspend)
+  {
+    "key": "cmd+z",
+    "command": "workbench.action.terminal.sendSequence",
+    "args": { "text": "\u001a" },
+    "when": "terminalFocus"
+  },
+  // Cmd+[ sends Ctrl+[ (Escape - ESC)
+  {
+    "key": "cmd+[",
+    "command": "workbench.action.terminal.sendSequence",
+    "args": { "text": "\u001b" },
+    "when": "terminalFocus"
+  },
+  // Cmd+\\ sends Ctrl+\\ (File Separator)
+  {
+    "key": "cmd+\\",
+    "command": "workbench.action.terminal.sendSequence",
+    "args": { "text": "\u001c" },
+    "when": "terminalFocus"
+  },
+  // Cmd+] sends Ctrl+] (Group Separator)
+  {
+    "key": "cmd+]",
+    "command": "workbench.action.terminal.sendSequence",
+    "args": { "text": "\u001d" },
+    "when": "terminalFocus"
+  },
+  // Cmd+^ sends Ctrl+^ (Record Separator)
+  {
+    "key": "cmd+shift+6",
+    "command": "workbench.action.terminal.sendSequence",
+    "args": { "text": "\u001e" },
+    "when": "terminalFocus"
+  },
+  // Cmd+_ sends Ctrl+_ (Unit Separator, often used for "undo" in bash/zsh)
+  {
+    "key": "cmd+-",
+    "command": "workbench.action.terminal.sendSequence",
+    "args": { "text": "\u001f" },
+    "when": "terminalFocus"
   }
 ]
 
