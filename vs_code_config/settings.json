@@ -568,5 +568,6 @@
     // "commands": ["editor.action.removeCommentLine"],
     // "when": "editorTextFocus && !editorReadonly"
     // }
-  ]
+  ],
+  "git.confirmSync": false
 }
