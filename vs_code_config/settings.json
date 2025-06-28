@@ -1,5 +1,5 @@
 {
-  // start up window setting
+  /* window config */
   "workbench.startupEditor": "none",
   "workbench.editor.enablePreview": false,
   "window.restoreWindows": "all",
@@ -8,17 +8,88 @@
     "*.pdf": "latex-workshop-pdf-hook"
   },
   "window.zoomLevel": 0.5,
-  // general programming editor setting
+
+  /* auto complete related */
+  "editor.suggest.snippetsPreventQuickSuggestions": false,
   "editor.tabCompletion": "on",
+
+  /* general programming editor setting */
   "editor.bracketPairColorization.enabled": true,
   "workbench.iconTheme": "material-icon-theme",
   "workbench.colorTheme": "Atom One Dark",
+  "editor.guides.bracketPairs": true,
+  "editor.smartSelect.selectSubwords": false,
   "editor.tokenColorCustomizations": {
     "[Atom One Dark]": {
       "comments": "#07db72"
     }
   },
   "editor.minimap.enabled": false,
+
+  /* untrusted file open */
+  "security.workspace.trust.untrustedFiles": "open",
+
+  /* status bar color */
+  "workbench.colorCustomizations": {
+    "statusBar.background": "#8FBCBB",
+    "statusBar.noFolderBackground": "#8FBCBB",
+    "statusBar.debuggingBackground": "#8FBCBB",
+    "statusBar.foreground": "#434C5E",
+    "statusBar.debuggingForeground": "#434C5E"
+  },
+  /* terminal config */
+  "terminal.integrated.fontSize": 10,
+  "terminal.integrated.copyOnSelection": true,
+  "terminal.integrated.cursorStyle": "line",
+  "terminal.integrated.cursorBlinking": true,
+  "terminal.integrated.cursorStyleInactive": "line",
+
+  /* default language agnositic font */
+  "editor.formatOnSave": true,
+  "editor.fontFamily": "Fira Code",
+  "editor.fontLigatures": true,
+  "editor.fontSize": 13,
+  "editor.fontWeight": "normal",
+  // wrap setting
+  "editor.accessibilitySupport": "off",
+  "editor.wordWrap": "wordWrapColumn",
+
+  /* python related config */
+  "python.defaultInterpreterPath": "/Users/lunyanghuang/anaconda3/envs/data_py39/bin/python",
+  "python.analysis.autoFormatStrings": true,
+  "[python]": {
+    "editor.wordWrap": "wordWrapColumn",
+    "editor.wordWrapColumn": 120,
+    "editor.fontFamily": "Fira Code Light",
+    "editor.fontLigatures": true,
+    "editor.fontWeight": "normal",
+    "editor.rulers": [120],
+    "editor.defaultFormatter": "ms-python.black-formatter"
+  },
+
+  /* mark down config */
+  "[markdown]": {
+    "editor.defaultFormatter": "yzhang.markdown-all-in-one"
+  },
+  "markdown.extension.list.indentationSize": "inherit",
+  "markdown.extension.tableFormatter.normalizeIndentation": true,
+
+  /* jsonc config */
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+
+  /* javascript config */
+  "[javascript]": {
+    "editor.indentSize": 2,
+    "editor.insertSpaces": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+
+  /* vetur config */
+  "vetur.validation.template": false,
+
+  /* latex extension config   */
   // latex editor setting
   "[latex]": {
     "editor.wordWrap": "bounded",
@@ -135,6 +206,7 @@
       "env": {}
     }
   ],
+
   "latex-workshop.latex.recipes": [
     {
       "name": "latexmk",
@@ -367,6 +439,9 @@
     "@measure": "\\left( \\Omega, \\mathcal{F}, \\mu, \\right)",
     "@triplet": "\\left( $1, $2, $3 \\right)"
   },
+  "latex-workshop.intellisense.atSuggestion.trigger.latex": ".",
+
+  /* vim config  */
   "vim.incsearch": true,
   "vim.hlsearch": true,
   "vim.textwidth": 120,
@@ -493,53 +568,5 @@
     // "commands": ["editor.action.removeCommentLine"],
     // "when": "editorTextFocus && !editorReadonly"
     // }
-  ],
-  "editor.suggest.snippetsPreventQuickSuggestions": false,
-  "latex-workshop.intellisense.atSuggestion.trigger.latex": ".",
-  "editor.guides.bracketPairs": true,
-  "workbench.colorCustomizations": {
-    "statusBar.background": "#8FBCBB",
-    "statusBar.noFolderBackground": "#8FBCBB",
-    "statusBar.debuggingBackground": "#8FBCBB",
-    "statusBar.foreground": "#434C5E",
-    "statusBar.debuggingForeground": "#434C5E"
-  },
-  "python.defaultInterpreterPath": "/Users/lunyanghuang/anaconda3/envs/data_py39/bin/python",
-  // terminal config
-  "terminal.integrated.fontSize": 10,
-  "terminal.integrated.copyOnSelection": true,
-  "python.analysis.autoFormatStrings": true,
-  "editor.formatOnSave": true,
-  "editor.fontFamily": "Fira Code",
-  "editor.fontLigatures": true,
-  "editor.fontSize": 13,
-  "editor.fontWeight": "normal",
-  // python specific
-  "[python]": {
-    "editor.wordWrap": "wordWrapColumn",
-    "editor.wordWrapColumn": 120,
-    "editor.fontFamily": "Fira Code Light",
-    "editor.fontLigatures": true,
-    "editor.fontWeight": "normal",
-    "editor.rulers": [120],
-    "editor.defaultFormatter": "ms-python.black-formatter"
-  },
-  "vetur.validation.template": false,
-  "editor.smartSelect.selectSubwords": false,
-  "[javascript]": {
-    "editor.indentSize": 2,
-    "editor.insertSpaces": true,
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "editor.accessibilitySupport": "off",
-  "editor.wordWrap": "wordWrapColumn",
-  "security.workspace.trust.untrustedFiles": "open",
-  "markdown.extension.list.indentationSize": "inherit",
-  "markdown.extension.tableFormatter.normalizeIndentation": true,
-  "[markdown]": {
-    "editor.defaultFormatter": "yzhang.markdown-all-in-one"
-  },
-  "[jsonc]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  }
+  ]
 }
