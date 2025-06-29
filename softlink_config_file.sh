@@ -1,5 +1,5 @@
 # path variable 
-dotfile_path="$HOME/Dropbox (Personal)/Projects/Terminal/dotfiles"
+dotfile_path="$HOME/dropbox/project/terminal/dotfiles"
 vs_code_config_path="$HOME/Library/Application Support/Code/User"
 
 # vim configuration
@@ -22,7 +22,7 @@ ln -sf "$dotfile_path/Vim config/snippets/python.snippets" ~/.vim/user_snippets/
 ln -sf "$dotfile_path/ZSH config/.jupytext" ~/.config/.jupytext
 # vs code configuration
 ln -sf "$dotfile_path/vs_code_config/settings.json" "$vs_code_config_path/settings.json"
-ln -sf "$dotfile_path/vs_code_config/keyboards.json" "$vs_code_config_path/keyboards.json"
+ln -sf "$dotfile_path/vs_code_config/keybindings.json" "$vs_code_config_path/keybindings.json"
 
 
 
