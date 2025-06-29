@@ -1,0 +1,13 @@
+# Host wrds
+#   HostName wrds-cloud.wharton.upenn.edu
+#   User lunyangh 
+
+#Delta House 
+# Host nitrogen 
+#     Hostname 129.126.125.250
+#     User lhuang
+#     Port 1818
+#     ServerAliveInterval 60 
+#     DynamicForward 8888
+#     LocalForward 8843 localhost:3128
+#     RequestTTY yes    

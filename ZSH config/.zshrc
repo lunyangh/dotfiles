@@ -8,6 +8,9 @@ export GROOVY_HOME=/usr/local/opt/groovy/libexe
 export EDITOR=/usr/local/bin/vim
 export VISUAL=/usr/local/bin/vim
 
+# set google cloud dsk python interpreter 
+export CLOUDSDK_PYTHON=/Users/lunyanghuang/anaconda3/envs/benchmark_py311/bin/python3
+
  #Source Prezto.
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
@@ -220,3 +223,9 @@ eval "$(zoxide init zsh)"
 
 
 
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/lunyanghuang/Dropbox (Personal)/project_v2/google_cloud/cloud_cli/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/lunyanghuang/Dropbox (Personal)/project_v2/google_cloud/cloud_cli/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/lunyanghuang/Dropbox (Personal)/project_v2/google_cloud/cloud_cli/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/lunyanghuang/Dropbox (Personal)/project_v2/google_cloud/cloud_cli/google-cloud-sdk/completion.zsh.inc'; fi
