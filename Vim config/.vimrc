@@ -330,21 +330,21 @@ set viminfo     ='100,n$HOME/.vim/files/info/viminfo "save vim session informati
 
 " **********  sautosave session per directory upon enter and exit vim *************
  
-function! SaveSess()
-    execute 'mksession! ' . getcwd() . '/.session.vim'
-endfunction
-
-function! RestoreSess()
-if filereadable(getcwd() . '/.session.vim')
-    execute 'so ' . getcwd() . '/.session.vim'
-endif
-endfunction
-
-augroup loadsession
-    autocmd!
-    autocmd VimLeave * call SaveSess()
-    autocmd VimEnter * nested call RestoreSess()
-augroup END
+" function! SaveSess()
+"    execute 'mksession! ' . getcwd() . '/.session.vim'
+" endfunction
+" 
+" function! RestoreSess()
+" if filereadable(getcwd() . '/.session.vim')
+"    execute 'so ' . getcwd() . '/.session.vim'
+" endif
+" endfunction
+" 
+" augroup loadsession
+"    autocmd!
+"    autocmd VimLeave * call SaveSess()
+"    autocmd VimEnter * nested call RestoreSess()
+" augroup END
 
 " *************** make leaving insertion mode quick *************
 " When you’re pressing Escape to leave insert mode in the terminal, it will by
