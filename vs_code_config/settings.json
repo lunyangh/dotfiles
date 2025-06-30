@@ -8,6 +8,7 @@
     "*.pdf": "latex-workshop-pdf-hook"
   },
   "window.zoomLevel": 0.5,
+  "workbench.panel.defaultLocation": "right",
 
   /* auto complete related */
   "editor.suggest.snippetsPreventQuickSuggestions": false,
