@@ -14,7 +14,7 @@
 # You should not hand-edit this section, unless you are deleting it.
 #
 Host configure-boot-disk-v0-20250628-202722.us-central1-c.sr-slow-research-main
-    HostName 34.170.205.20
+    HostName 34.63.108.36
     IdentityFile /Users/lunyanghuang/.ssh/google_compute_engine
     UserKnownHostsFile=/Users/lunyanghuang/.ssh/google_compute_known_hosts
     HostKeyAlias=compute.7006439492299910869
