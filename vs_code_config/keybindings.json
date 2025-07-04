@@ -1253,6 +1253,30 @@ The key adjustment here aims to mimic windows keyboard with the key adjustment
     "command": "workbench.action.terminal.sendSequence",
     "args": { "text": "\u001f" },
     "when": "terminalFocus"
+  },
+  {
+    "key": "ctrl+w p",
+    "command": "markdown.showPreviewToSide",
+    "when": "!notebookEditorFocused && editorLangId == 'markdown'"
+  },
+  {
+    "key": "cmd+k v",
+    "command": "-markdown.showPreviewToSide",
+    "when": "!notebookEditorFocused && editorLangId == 'markdown'"
+  },
+  {
+    "key": "ctrl+w r",
+    "command": "markdown.preview.refresh"
+  },
+  {
+    "key": "ctrl+w p",
+    "command": "markdown.extension.closePreview",
+    "when": "activeWebviewPanelId == 'markdown.preview'"
+  },
+  {
+    "key": "shift+cmd+v",
+    "command": "-markdown.extension.closePreview",
+    "when": "activeWebviewPanelId == 'markdown.preview'"
   }
 ]
 
