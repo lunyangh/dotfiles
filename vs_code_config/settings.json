@@ -75,6 +75,7 @@
   "markdown.extension.list.indentationSize": "inherit",
   "markdown.extension.tableFormatter.normalizeIndentation": true,
   "markdown.extension.preview.autoShowPreviewToSide": true,
+  "markdown.preview.fontSize": 11,
 
   /* jsonc config */
   "[jsonc]": {
