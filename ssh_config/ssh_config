@@ -5,12 +5,12 @@
 #
 
 Host dev-vm-v1
-    User slowresearcher_gmail_com
+    # User slowresearcher_gmail_com
+    User slowres1937_gmail_com
     IdentityFile /Users/lunyanghuang/.ssh/google_compute_engine
     IdentitiesOnly=yes
     CheckHostIP=no    
     ProxyCommand gcloud compute ssh %h --project=sr-slow-research-main --zone=us-central1-c --tunnel-through-iap --ssh-flag="-W %h:%p"
-
 
 # Google Compute Engine Section
 #
