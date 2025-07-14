@@ -643,18 +643,6 @@ The key adjustment here aims to mimic windows keyboard with the key adjustment
   // },
 
   {
-    "key": "cmd+shift+home",
-    "command": "cursorHomeSelect",
-    "when": "textInputFocus"
-  },
-  {
-    "key": "cmd+shift+end",
-    "command": "cursorEndSelect",
-    "when": "textInputFocus"
-  },
-
-  // set word jump/select with command
-  {
     "key": "cmd+left",
     "command": "cursorWordLeft",
     "when": "textInputFocus"
@@ -695,6 +683,16 @@ The key adjustment here aims to mimic windows keyboard with the key adjustment
   {
     "key": "cmd+up",
     "command": "-cursorTop",
+    "when": "textInputFocus"
+  },
+  {
+    "key": "shift+cmd+home",
+    "command": "cursorTopSelect",
+    "when": "textInputFocus"
+  },
+  {
+    "key": "shift+cmd+end",
+    "command": "cursorBottomSelect",
     "when": "textInputFocus"
   },
   {
