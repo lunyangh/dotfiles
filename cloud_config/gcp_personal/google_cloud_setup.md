@@ -67,11 +67,20 @@ Add ons:
 
 Some reference docs of SSH:
 [concept of ssh](./ssh/ssh_basic.md): what ssh is about
-[ssh in google cloud](./gcp_detail/setup_ssh.md): for basics of ssh with google cloud
+[ssh in google cloud](./gcp_detail/gcp_ssh.md): for basics of ssh with google cloud
 [vscode in os login](./gcp_detail/vscode_os_login.md): details for vscode remote connection when using ssh.
 
 Since this is personal project folder. I prefer to 
     * setup project level ssh key pairs, allow all machines to use project level ssh key to authenticate
+
+To setup ssh config to login vm via manual project level ssh. follow this [doc](./gcp_detail/project_ssh_manual_setup.md)
+
+some customization steps: 
+    * change ssh key file name from google-cloud-ssh
+    * configure username used in login VM.
+    * update config in `~.ssh/config` for new VM configuration.
+
+  
 
 
 

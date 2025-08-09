@@ -49,14 +49,14 @@
   "editor.formatOnSave": true,
   "editor.fontFamily": "Fira Code",
   "editor.fontLigatures": true,
-  "editor.fontSize": 13,
+  "editor.fontSize": 11,
   "editor.fontWeight": "normal",
   // wrap setting
   "editor.accessibilitySupport": "off",
   "editor.wordWrap": "wordWrapColumn",
 
   /* python related config */
-  "python.defaultInterpreterPath": "/Users/lunyanghuang/anaconda3/envs/data_py39/bin/python",
+  "python.defaultInterpreterPath": "/usr/local/bin/python3",
   "python.analysis.autoFormatStrings": true,
   "[python]": {
     "editor.wordWrap": "wordWrapColumn",
@@ -74,8 +74,9 @@
   },
   "markdown.extension.list.indentationSize": "inherit",
   "markdown.extension.tableFormatter.normalizeIndentation": true,
-  "markdown.extension.preview.autoShowPreviewToSide": true,
+  "markdown.extension.preview.autoShowPreviewToSide": false,
   "markdown.preview.fontSize": 11,
+  "markdown-preview-enhanced.automaticallyShowPreviewOfMarkdownBeingEdited": true,
 
   /* jsonc config */
   "[jsonc]": {
@@ -572,5 +573,12 @@
     // "when": "editorTextFocus && !editorReadonly"
     // }
   ],
-  "git.confirmSync": false
+  "git.confirmSync": false,
+
+  // docstring format
+  "autoDocstring.docstringFormat": "numpy",
+  "python.analysis.typeCheckingMode": "basic",
+  "markdown-preview-enhanced.previewTheme": "github-light.css",
+  "markdown-preview-enhanced.revealjsTheme": "none.css",
+  "markdown-preview-enhanced.enablePreviewZenMode": false
 }

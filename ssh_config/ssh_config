@@ -4,6 +4,19 @@
 # * User:OS Login username. run to find 'gcloud compute os-login describe-profile'
 #
 
+# personal google cloud vm
+Host personal-vm-v1
+    # external ip of VM
+    HostName 34.56.153.207
+    User lunyang
+    # ssh key file 
+    IdentityFile /Users/lunyanghuang/.ssh/gc-vm-personal 
+    IdentitiesOnly=yes
+    # skip checking hostkey is not known every time, hostkey is different for a different VM (a new hostkey if you delete and create a new VM with same external ip address)
+    StrictHostKeyChecking no
+    # separate location of host files
+    UserKnownHostsFile=/Users/lunyanghuang/.ssh/gc-vm-personal_known_hosts
+
 Host dev-vm-v1
     # User slowresearcher_gmail_com
     User slowres1937_gmail_com
