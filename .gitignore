@@ -1,3 +1,4 @@
 .DS_store
 .session.vim
 cloud_config/gcp/repo_token.md
+**/token/**
