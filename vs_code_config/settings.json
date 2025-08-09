@@ -76,7 +76,10 @@
   "markdown.extension.tableFormatter.normalizeIndentation": true,
   "markdown.extension.preview.autoShowPreviewToSide": false,
   "markdown.preview.fontSize": 11,
-  "markdown-preview-enhanced.automaticallyShowPreviewOfMarkdownBeingEdited": true,
+  "markdown-preview-enhanced.automaticallyShowPreviewOfMarkdownBeingEdited": false,
+  "markdown-preview-enhanced.previewTheme": "github-light.css",
+  "markdown-preview-enhanced.revealjsTheme": "none.css",
+  "markdown-preview-enhanced.enablePreviewZenMode": false,
 
   /* jsonc config */
   "[jsonc]": {
@@ -578,7 +581,9 @@
   // docstring format
   "autoDocstring.docstringFormat": "numpy",
   "python.analysis.typeCheckingMode": "basic",
-  "markdown-preview-enhanced.previewTheme": "github-light.css",
-  "markdown-preview-enhanced.revealjsTheme": "none.css",
-  "markdown-preview-enhanced.enablePreviewZenMode": false
+
+  // ansible extension
+  "ansible.lightspeed.enabled": false,
+  "ansible.lightspeed.suggestions.enabled": false,
+  "ansible.python.interpreterPath": "/Users/lunyanghuang/anaconda3/envs/ansible/bin/python"
 }
