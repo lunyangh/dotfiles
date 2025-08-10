@@ -585,5 +585,7 @@
   // ansible extension
   "ansible.lightspeed.enabled": false,
   "ansible.lightspeed.suggestions.enabled": false,
-  "ansible.python.interpreterPath": "/Users/lunyanghuang/anaconda3/envs/ansible/bin/python"
+  "ansible.python.interpreterPath": "/Users/lunyanghuang/anaconda3/envs/ansible/bin/python",
+  "ansible.ansible.path": "/Users/lunyanghuang/.local/bin/ansible",
+  "ansible.validation.lint.path": "/Users/lunyanghuang/anaconda3/envs/ansible/bin/ansible-lint"
 }
