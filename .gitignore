@@ -2,3 +2,4 @@
 .session.vim
 cloud_config/gcp/repo_token.md
 **/token/**
+.ansible
