@@ -68,6 +68,16 @@
     "editor.defaultFormatter": "ms-python.black-formatter"
   },
 
+  /* dockerfile config */
+  "[dockerfile]": {
+    "editor.wordWrap": "wordWrapColumn",
+    "editor.wordWrapColumn": 120,
+    "editor.fontFamily": "Fira Code Light",
+    "editor.fontLigatures": true,
+    "editor.fontWeight": "normal",
+    "editor.rulers": [120],
+  },
+
   /* mark down config */
   "[markdown]": {
     "editor.defaultFormatter": "yzhang.markdown-all-in-one"

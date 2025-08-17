@@ -20,7 +20,7 @@
 			"# Exit upon first error",
 			"set -e",
 			"# change directory to bash script",
-			"pushd \"$(dirname \"$0\")\" >/dev/null",
+			"pushd \"$(dirname \"\\$0\")\" >/dev/null",
 			"# print error upon exit,  return to original dir regardless error or not",
 			"handle_error() {",
 			"  echo \"Error: Command failed at line $BASH_LINENO\" >&2",
