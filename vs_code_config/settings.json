@@ -75,7 +75,7 @@
     "editor.fontFamily": "Fira Code Light",
     "editor.fontLigatures": true,
     "editor.fontWeight": "normal",
-    "editor.rulers": [120],
+    "editor.rulers": [120]
   },
 
   /* mark down config */
