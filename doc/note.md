@@ -1,0 +1,1 @@
+This folder contains notes about details of some specific configuration for different softwares. might be useful on mac.

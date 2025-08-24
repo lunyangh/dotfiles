@@ -32,7 +32,7 @@ Host test-vm
 # testing system based on ubuntu
 Host test-vm-ubuntu
     # external ip of VM
-    HostName 34.132.64.64
+    HostName 35.184.198.35
     User lunyang
     # ssh key file 
     IdentityFile /Users/lunyanghuang/.ssh/gc-vm-personal 

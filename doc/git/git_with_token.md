@@ -29,6 +29,13 @@ The PAT is used as a replacement for your password. When Git prompts for credent
   * **Username:** Your GitHub username.
   * **Password:** The PAT you just copied.
 
+
+If you need to pass PAT set as environment variable, use following command: 
+```bash 
+set -o pipefail && echo $personal_git_vm_token | gh auth login --with-token
+```
+This is how ansible authenticates git with encrypted git PAT.
+
 -----
 
 #### 3\. Cache the Token with Git's Credential Helper
