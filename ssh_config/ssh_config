@@ -32,7 +32,7 @@ Host test-vm
 # testing system based on ubuntu
 Host test-vm-ubuntu
     # external ip of VM
-    HostName 35.184.198.35
+    HostName 34.69.6.61
     User lunyang
     # ssh key file 
     IdentityFile /Users/lunyanghuang/.ssh/gc-vm-personal 
@@ -41,6 +41,19 @@ Host test-vm-ubuntu
     StrictHostKeyChecking no
     # separate location of host files
     UserKnownHostsFile=/Users/lunyanghuang/.ssh/gc-vm-personal_known_hosts
+
+Host test-vm-ubuntu-gpu
+    # external ip of VM
+    HostName 34.55.164.121
+    User lunyang
+    # ssh key file 
+    IdentityFile /Users/lunyanghuang/.ssh/gc-vm-personal 
+    IdentitiesOnly=yes
+    # skip checking hostkey is not known every time, hostkey is different for a different VM (a new hostkey if you delete and create a new VM with same external ip address)
+    StrictHostKeyChecking no
+    # separate location of host files
+    UserKnownHostsFile=/Users/lunyanghuang/.ssh/gc-vm-personal_known_hosts
+
 
 
 

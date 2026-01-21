@@ -65,8 +65,15 @@
     "editor.fontLigatures": true,
     "editor.fontWeight": "normal",
     "editor.rulers": [120],
-    "editor.defaultFormatter": "ms-python.black-formatter"
+    "editor.defaultFormatter": "charliermarsh.ruff",
+    "editor.codeActionsOnSave": {
+      "source.organizeImports.ruff": "explicit",
+      "source.fixAll": "explicit"
+    }
   },
+
+  /* lint choice, make sure ruff is used */
+  "ruff.enable": true,
 
   /* dockerfile config */
   "[dockerfile]": {
@@ -90,6 +97,12 @@
   "markdown-preview-enhanced.previewTheme": "github-light.css",
   "markdown-preview-enhanced.revealjsTheme": "none.css",
   "markdown-preview-enhanced.enablePreviewZenMode": false,
+  "editor.pasteAs.preferences": [
+    "markdown.link.uri",
+    "uri.path.absolute",
+    "text.updateLinks.markdown",
+    "text.plain"
+  ],
 
   /* jsonc config */
   "[jsonc]": {
@@ -595,7 +608,8 @@
   // ansible extension
   "ansible.lightspeed.enabled": false,
   "ansible.lightspeed.suggestions.enabled": false,
-  "ansible.python.interpreterPath": "/Users/lunyanghuang/anaconda3/envs/ansible/bin/python",
+  "ansible.python.interpreterPath": "/usr/local/bin/python3",
   "ansible.ansible.path": "/Users/lunyanghuang/.local/bin/ansible",
-  "ansible.validation.lint.path": "/Users/lunyanghuang/anaconda3/envs/ansible/bin/ansible-lint"
+  "ansible.validation.lint.path": "/Users/lunyanghuang/anaconda3/envs/ansible/bin/ansible-lint",
+  "update.showReleaseNotes": false
 }
