@@ -5,7 +5,7 @@
   "window.restoreWindows": "all",
   "workbench.editorAssociations": {
     "*.ipynb": "jupyter-notebook",
-    "*.pdf": "latex-workshop-pdf-hook"
+    "*.pdf": "latex-workshop-pdf-hook",
   },
   "window.zoomLevel": 0.5,
   "workbench.panel.defaultLocation": "right",
@@ -22,8 +22,8 @@
   "editor.smartSelect.selectSubwords": false,
   "editor.tokenColorCustomizations": {
     "[Atom One Dark]": {
-      "comments": "#07db72"
-    }
+      "comments": "#07db72",
+    },
   },
   "editor.minimap.enabled": false,
 
@@ -36,7 +36,7 @@
     "statusBar.noFolderBackground": "#8FBCBB",
     "statusBar.debuggingBackground": "#8FBCBB",
     "statusBar.foreground": "#434C5E",
-    "statusBar.debuggingForeground": "#434C5E"
+    "statusBar.debuggingForeground": "#434C5E",
   },
   /* terminal config */
   "terminal.integrated.fontSize": 10,
@@ -68,8 +68,8 @@
     "editor.defaultFormatter": "charliermarsh.ruff",
     "editor.codeActionsOnSave": {
       "source.organizeImports.ruff": "explicit",
-      "source.fixAll": "explicit"
-    }
+      "source.fixAll": "explicit",
+    },
   },
 
   /* lint choice, make sure ruff is used */
@@ -82,12 +82,12 @@
     "editor.fontFamily": "Fira Code Light",
     "editor.fontLigatures": true,
     "editor.fontWeight": "normal",
-    "editor.rulers": [120]
+    "editor.rulers": [120],
   },
 
   /* mark down config */
   "[markdown]": {
-    "editor.defaultFormatter": "yzhang.markdown-all-in-one"
+    "editor.defaultFormatter": "yzhang.markdown-all-in-one",
   },
   "markdown.extension.list.indentationSize": "inherit",
   "markdown.extension.tableFormatter.normalizeIndentation": true,
@@ -101,504 +101,21 @@
     "markdown.link.uri",
     "uri.path.absolute",
     "text.updateLinks.markdown",
-    "text.plain"
+    "text.plain",
   ],
 
   /* jsonc config */
   "[jsonc]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
   },
 
   /* javascript config */
   "[javascript]": {
     "editor.indentSize": 2,
     "editor.insertSpaces": true,
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
   },
 
-  /* vetur config */
-  "vetur.validation.template": false,
-
-  /* latex extension config   */
-  // latex editor setting
-  "[latex]": {
-    "editor.wordWrap": "bounded",
-    "editor.wordWrapColumn": 120,
-    "editor.fontFamily": "FiraCode-Retina",
-    "editor.fontLigatures": true,
-    "editor.rulers": [120]
-  },
-  // latex workshop setting
-  "latex-workshop.latex.autoBuild.run": "never",
-  "latex-workshop.latex.tools": [
-    {
-      "name": "latexmk",
-      "command": "latexmk",
-      "args": [
-        "-synctex=1",
-        "-interaction=nonstopmode",
-        "-file-line-error",
-        "-pdf",
-        "-outdir=%OUTDIR%",
-        "%DOC%"
-      ],
-      "env": {}
-    },
-    {
-      "name": "lualatexmk",
-      "command": "latexmk",
-      "args": [
-        "-synctex=1",
-        "-interaction=nonstopmode",
-        "-file-line-error",
-        "-lualatex",
-        "-outdir=%OUTDIR%",
-        "%DOC%"
-      ],
-      "env": {}
-    },
-    {
-      "name": "xelatexmk",
-      "command": "latexmk",
-      "args": [
-        "-synctex=1",
-        "-interaction=nonstopmode",
-        "-file-line-error",
-        "-xelatex",
-        "-outdir=%OUTDIR%",
-        "%DOC%"
-      ],
-      "env": {}
-    },
-    {
-      "name": "latexmk_rconly",
-      "command": "latexmk",
-      "args": ["%DOC%"],
-      "env": {}
-    },
-    {
-      "name": "pdflatex",
-      "command": "pdflatex",
-      "args": [
-        "-synctex=1",
-        "-interaction=nonstopmode",
-        "-file-line-error",
-        "%DOC%"
-      ],
-      "env": {}
-    },
-    {
-      "name": "bibtex",
-      "command": "bibtex",
-      "args": ["%DOCFILE%"],
-      "env": {}
-    },
-    {
-      "name": "rnw2tex",
-      "command": "Rscript",
-      "args": [
-        "-e",
-        "knitr::opts_knit$set(concordance = TRUE); knitr::knit('%DOCFILE_EXT%')"
-      ],
-      "env": {}
-    },
-    {
-      "name": "jnw2tex",
-      "command": "julia",
-      "args": ["-e", "using Weave; weave(\"%DOC_EXT%\", doctype=\"tex\")"],
-      "env": {}
-    },
-    {
-      "name": "jnw2texminted",
-      "command": "julia",
-      "args": [
-        "-e",
-        "using Weave; weave(\"%DOC_EXT%\", doctype=\"texminted\")"
-      ],
-      "env": {}
-    },
-    {
-      "name": "pnw2tex",
-      "command": "pweave",
-      "args": ["-f", "tex", "%DOC_EXT%"],
-      "env": {}
-    },
-    {
-      "name": "pnw2texminted",
-      "command": "pweave",
-      "args": ["-f", "texminted", "%DOC_EXT%"],
-      "env": {}
-    },
-    {
-      "name": "tectonic",
-      "command": "tectonic",
-      "args": ["--synctex", "--keep-logs", "%DOC%.tex"],
-      "env": {}
-    }
-  ],
-
-  "latex-workshop.latex.recipes": [
-    {
-      "name": "latexmk",
-      "tools": ["latexmk"]
-    },
-    {
-      "name": "latexmk (latexmkrc)",
-      "tools": ["latexmk_rconly"]
-    },
-    {
-      "name": "latexmk (lualatex)",
-      "tools": ["lualatexmk"]
-    },
-    {
-      "name": "latexmk (xelatex)",
-      "tools": ["xelatexmk"]
-    },
-    {
-      "name": "pdflatex -> bibtex -> pdflatex * 2",
-      "tools": ["pdflatex", "bibtex", "pdflatex", "pdflatex"]
-    },
-    {
-      "name": "Compile Rnw files",
-      "tools": ["rnw2tex", "latexmk"]
-    },
-    {
-      "name": "Compile Jnw files",
-      "tools": ["jnw2tex", "latexmk"]
-    },
-    {
-      "name": "Compile Pnw files",
-      "tools": ["pnw2tex", "latexmk"]
-    },
-    {
-      "name": "tectonic",
-      "tools": ["tectonic"]
-    }
-  ],
-  "latex-workshop.latex.autoClean.run": "onBuilt",
-  "latex-workshop.latex.clean.fileTypes": [
-    "*.aux",
-    "*.bbl",
-    "*.blg",
-    "*.idx",
-    "*.ind",
-    "*.lof",
-    "*.lot",
-    "*.out",
-    "*.toc",
-    "*.acn",
-    "*.acr",
-    "*.alg",
-    "*.glg",
-    "*.glo",
-    "*.gls",
-    "*.fls",
-    "*.log",
-    "*.fdb_latexmk",
-    "*.snm",
-    "*.synctex(busy)",
-    "*.synctex.gz(busy)",
-    "*.nav",
-    "*.vrb",
-    "*.run.xml",
-    "*.synctex.gz",
-    "*.bcf"
-  ],
-  "latex-workshop.intellisense.command.user": {
-    "sb": "subseteq",
-    "sp": "superseteq",
-    "f": "frac{$1}{$2}",
-    // arbitrary environment
-    "be": "begin{$1}\n\t${0:${TM_SELECTED_TEXT}}\n\\end{$1}"
-  },
-  "latex-workshop.intellisense.atSuggestion.user": {
-    // enumerate items
-    "@item": "\\item",
-    //  equation environment
-    "@eq": "\\begin{equation}\n\t $1 \n\\end{equation}\n",
-    "@eqn": "\\begin{equation*}\n\t $1 \n\\end{equation*}\n",
-    // inline math
-    "@mk": "\\( $1 \\)",
-    "@mkl": "\\(\n\t$1\n\\)\n", // inline math expand multiple lines in latex
-    // equation match
-    "@md": "\\[\n\t$1 .\n\\]\n",
-    // arbitrary Environment
-    "@be": "\\begin{$1}\n\t${0:${TM_SELECTED_TEXT}}\n\\end{$1}\n",
-    "@proof": "\\begin{proof}\n\t${0:${TM_SELECTED_TEXT}}\n\\end{proof}\n",
-    "@obs": "\\begin{obs}\n\t${0:${TM_SELECTED_TEXT}}\n\\end{obs}\n",
-    "@remark": "\\begin{remark}\n\t${0:${TM_SELECTED_TEXT}}\n\\end{remark}\n",
-    "@lemma": "\\begin{lemma}\n\t${0:${TM_SELECTED_TEXT}}\n\\end{lemma}\n",
-    "@theorem": "\\begin{theorem}\n\t${0:${TM_SELECTED_TEXT}}\n\\end{theorem}\n",
-    // function definition
-    "@fdef": " \\to $3",
-    // different arrow ones
-    "@!>": "\\mapsto",
-    "@mapsto": "\\mapsto",
-    "@->": "\\to",
-    "@to": "\\to",
-    "@uparrow": "\\uparrow",
-    "@<->": "\\leftrightarrow",
-    "@>>": "\\gg",
-    "@<<": "\\ll",
-    // variant character
-    //mathcal
-    "@mcal": "\\mathcal{$1}$0",
-    // common variant
-    "@mcf": "\\mathcal{F}$0",
-    "@mca": "\\mathcal{A}$0",
-    //mathbb
-    "@mbb": "\\mathbb{$1}$0",
-    "@mbbr": "\\mathbb{R}$0",
-    // comparison
-    "@>": ">",
-    "@>=": "\\geq",
-    "@ge": "\\geq",
-    "@<": "<",
-    "@<=": "\\leq",
-    "@le": "\\leq",
-    // set class
-    "@UU": "\\cup",
-    "@NN": "\\cap",
-    "@uuu": "\\bigcup_{${1:i \\in ${2: I}}} $0",
-    "@nnn": "\\bigcap_{${1:i \\in ${2: I}}} $0",
-    // cases
-    "@cases": "\\begin{cases}\n\t$1\n\\end{cases}",
-    // set operation
-    "@\\\\\\": "\\setminus", // set difference
-    "@cc": "\\subseteq", // set contains
-    "@CC": "\\superseteq", // set contains opp direction
-    "@in": "\\in", // element belongs to
-    "@notin": "\\not\\in", // element not belong to
-    // aggregatoin
-    "@sum": "\\sum_{${1:n}=${2:1}}^{${3:\\infty}} ${4:a_n Z^n} $0",
-    "@sumd": "\\sum_{${1:i}}", // summation with subscript only
-    "@prod": "\\prod_{${1:n}=${2:1}}^{${3:\\infty}} ${4:a_n Z^n}",
-    "@prodd": "\\prod_{${1:i}}", // product with subscript only
-    // limit
-    "@limit": "\\lim_{${1:n}}",
-    "@limitd": "\\lim_{${1:n}}", // product with subscript only
-    "@limitsup": "\\limsup_{${1:n}}",
-    "@limitinf": "\\liminf_{${1:n}}",
-    // super script
-    "@uu": "^{$1}",
-    // subscript
-    "@dd": "_{$1}",
-    // common subscripts
-    "@di": "_{i}",
-    "@dj": "_{j}",
-    "@dk": "_{k}",
-    "@dij": "_{ij}",
-    "@djk": "_{j,k}",
-    "@dik": "_{i,k}",
-    "@dm": "_{m}",
-    "@dn": "_{n}",
-    "@dmn": "_{m,n}",
-    // squared, cube, complement
-    "@u2": "^{2}",
-    "@cube": "^{3}",
-    "@comp": "^{c}",
-    "@uinf": "^{\\infty}",
-    "@um": "^{m}",
-    "@u+": "^{+}",
-    "@u-": "^{-}",
-    "@un": "^{n}",
-    "@inv": "^{-1}",
-    // min max abs
-    "@min": "\\min { ${1} } ${0}",
-    "@max": "\\max { ${1} } ${0}",
-    "@abs": "|${1}|$0",
-    // overline
-    "@bar": "\\overline{$1}$0",
-    "@hat": "\\hat{$1}$0",
-    // basic logic
-    "@AA": "\\forall",
-    "@EE": "\\exists",
-    "@=>": "\\implies",
-    "@=<": "\\impliedby",
-    "@iff": "\\iff",
-    "@!=": "\\neq",
-    "@==": "&= $1",
-    // matrix
-    "@ceil": "\\left\\lceil $1 \\right\\rceil $0",
-    "@floor": "\\left\\lfloor $1 \\right\\rfloor $0",
-    "@pmat": "\\begin{pmatrix} $1 \\end{pmatrix} $0",
-    "@bmat": "\\begin{bmatrix} $1 \\end{bmatrix} $0",
-    // conjugate
-    "@conj": "\\overline{$1}$0",
-    // fraction
-    "@/": "\\frac{$1}{$2}$0",
-    // norm
-    "@norm": "\\|$1\\|$0", //norm
-    "@xx": "\\times", // cross product
-    "@**": "\\cdot", // dot product
-    // vector
-    "@cvec": "\\begin{pmatrix} ${1:x}_${2:1}\\\\ \\vdots\\\\ $1_${2:n} \\end{pmatrix}",
-    // integral, diff
-    "@dint": "\\int_{${1:-\\infty}}^{${2:\\infty}} ${3:TM_SELECTED_TEXT} $0",
-    "@part": "\\frac{\\partial ${1:f}}{\\partial ${2:x}} $0",
-    // hessian
-    "@hessian": "\\nabla",
-    // set
-    "@|": "\\mid",
-    "@mid": "\\mid",
-    "@set": "\\left\\{ ${1} \\mid ${2}\\right\\\\} $0",
-    // inf sup
-    "@inf": "\\inf_{${1}} $0",
-    "@sup": "\\sup_{${1}} $0",
-    // other greek letters
-    "@O": "\\Omega",
-    "@iin": "\\infty",
-    "@OO": "\\emptyset",
-    "@lll": "\\ell", // a curly
-    // set of real number
-    "@integer": "\\mathbb{N}",
-    "@integerpos": "\\mathbb{Z}_{+}",
-    "@rational": "\\mathbb{Q}",
-    "@rationalpos": "\\mathbb{Q}_{+}",
-    "@real": "\\mathbb{R}",
-    "@realbar": "\\overline{\\mathbb{R}}",
-    "@realpos": "\\mathbb{R}_{+}",
-    "@realposex": "\\mathbb{R}_{+} \\cup \\{ + \\infty \\\\}",
-    "@realextend": "\\mathbb{R} \\cup \\{- \\infty ,+ \\infty \\\\}",
-    "@borel": "\\overline{\\mathcal{B}}",
-    //indicator function
-    "@indicator": "\\mathbbm{1}_{$1} $0",
-    // other special characters
-    "@.": ".", // insert dot in normal mode
-    // math object useful in measure theory lecture
-    "@measure": "\\left( \\Omega, \\mathcal{F}, \\mu, \\right)",
-    "@triplet": "\\left( $1, $2, $3 \\right)"
-  },
-  "latex-workshop.intellisense.atSuggestion.trigger.latex": ".",
-
-  /* vim config  */
-  "vim.incsearch": true,
-  "vim.hlsearch": true,
-  "vim.textwidth": 120,
-  "vim.leader": "<space>",
-  "vim.useSystemClipboard": true,
-  "vim.easymotion": true,
-  "vim.camelCaseMotion.enable": true,
-  "vim.sneak": true,
-  "vim.timeout": 300,
-  // vim status bar
-  "vim.statusBarColorControl": true,
-  "vim.statusBarColors.normal": ["#8FBCBB", "#434C5E"],
-  "vim.statusBarColors.insert": "#BF616A",
-  "vim.statusBarColors.visual": "#B48EAD",
-  "vim.statusBarColors.visualline": "#B48EAD",
-  "vim.statusBarColors.visualblock": "#A3BE8C",
-  "vim.statusBarColors.replace": "#D08770",
-  "vim.statusBarColors.commandlineinprogress": "#007ACC",
-  "vim.statusBarColors.searchinprogressmode": "#007ACC",
-  "vim.statusBarColors.easymotionmode": "#007ACC",
-  "vim.statusBarColors.easymotioninputmode": "#007ACC",
-  "vim.statusBarColors.surroundinputmode": "#007ACC",
-  // other key bindings
-  "vim.insertModeKeyBindings": [
-    {
-      "before": ["j", "k"],
-      "after": ["<Esc>"]
-    }
-  ],
-  "vim.normalModeKeyBindings": [
-    // latex build
-    {
-      "before": ["<leader>", "b"],
-      "commands": ["latex-workshop.build"]
-    },
-    // toggle editor
-    {
-      "before": ["<leader>", "p"],
-      "commands": ["workbench.action.previousEditor"]
-    },
-    {
-      "before": ["<leader>", "n"],
-      "commands": ["workbench.action.nextEditor"]
-    }
-    // {
-    // "before": ["c", "c"],
-    // "commands": ["editor.action.commentLine"],
-    // "when": "editorTextFocus && !editorReadonly"
-    // },
-    // {
-    // "before": ["c", "u"],
-    // "commands": ["editor.action.removeCommentLine"],
-    // "when": "editorTextFocus && !editorReadonly"
-    // }
-  ],
-  "vim.normalModeKeyBindingsNonRecursive": [
-    // move by arrow keys move across visual wrapped lines
-    {
-      "before": ["down"],
-      "after": ["g", "j"]
-    },
-    {
-      "before": ["up"],
-      "after": ["g", "k"]
-    },
-    // use the same undo stack in vim and vscode
-    {
-      "before": ["u"],
-      "after": [],
-      "commands": [
-        {
-          "command": "undo",
-          "args": []
-        }
-      ]
-    },
-    {
-      "before": ["<C-r>"],
-      "after": [],
-      "commands": [
-        {
-          "command": "redo",
-          "args": []
-        }
-      ]
-    }
-    // {
-    //     "before": ["<C-d>"],
-    //     "after": [],
-    //     "commands": [
-    //         {
-    //             "command": "cursorPageDown",
-    //             "args": []
-    //         }
-    //     ]
-    // },
-    // {
-    //     "before": ["<C-u>"],
-    //     "after": [],
-    //     "commands": [
-    //         {
-    //             "command": "cursorPageUp",
-    //             "args": []
-    //         }
-    //     ]
-    // },
-  ],
-  "vim.visualModeKeyBindingsNonRecursive": [
-    {
-      "before": ["down"],
-      "after": ["g", "j"]
-    },
-    {
-      "before": ["up"],
-      "after": ["g", "k"]
-    }
-    // {
-    // "before": ["c", "c"],
-    // "commands": ["editor.action.commentLine"],
-    // "when": "editorTextFocus && !editorReadonly"
-    // },
-    // {
-    // "before": ["c", "u"],
-    // "commands": ["editor.action.removeCommentLine"],
-    // "when": "editorTextFocus && !editorReadonly"
-    // }
-  ],
   "git.confirmSync": false,
 
   // docstring format
@@ -611,5 +128,5 @@
   "ansible.python.interpreterPath": "/usr/local/bin/python3",
   "ansible.ansible.path": "/Users/lunyanghuang/.local/bin/ansible",
   "ansible.validation.lint.path": "/Users/lunyanghuang/anaconda3/envs/ansible/bin/ansible-lint",
-  "update.showReleaseNotes": false
+  "update.showReleaseNotes": false,
 }
