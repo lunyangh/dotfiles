@@ -35,15 +35,15 @@ ln -sf "$dotfile_path/ZSH config/.zpreztorc" ~/.zpreztorc
 ln -sf "$dotfile_path/tmux config/.tmux.conf"  ~/.tmux.conf
 
 ln -sf "$dotfile_path/tmux config/.tmux_status_bar"  ~/.tmux/.tmux_status_bar
-
+«
 # python snippets
 ln -sf "$dotfile_path/Vim config/snippets/python.snippets" ~/.vim/user_snippets/python.snippets
 
 # jupytext configuration 
 ln -sf "$dotfile_path/ZSH config/.jupytext" ~/.config/.jupytext
 # vs code configuration
-ln -sf "$dotfile_path/vs_code_config/settings.json" "$vs_code_config_path/settings.json"
-ln -sf "$dotfile_path/vs_code_config/keybindings.json" "$vs_code_config_path/keybindings.json"
+ln -sf "$dotfile_path/vs_code_config/setting/settings.json" "$vs_code_config_path/settings.json"
+ln -sf "$dotfile_path/vs_code_config/keybinding/keybindings.json" "$vs_code_config_path/keybindings.json"
 
 # snippet files 
 ln -sf "$dotfile_path/vs_code_config/snippet/shell_snippet.json" "$vs_code_config_path/snippets/shellscript.json"

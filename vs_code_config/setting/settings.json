@@ -122,6 +122,7 @@
     },
   },
   "debug.inlineValues": "off",
+  "python.analysis.typeCheckingMode": "basic",
 
   /* lint choice, make sure ruff is used */
   "ruff.enable": true,
@@ -195,7 +196,6 @@
 
   // docstring format
   "autoDocstring.docstringFormat": "numpy",
-  "python.analysis.typeCheckingMode": "basic",
 
   // ansible extension
   "ansible.lightspeed.enabled": false,
