@@ -1,7 +1,6 @@
 {
   /* window config */
   "workbench.startupEditor": "none",
-  "workbench.editor.enablePreview": false,
   "window.restoreWindows": "all",
   "workbench.editorAssociations": {
     "*.ipynb": "jupyter-notebook",
@@ -9,10 +8,56 @@
   },
   "window.zoomLevel": 0.5,
   "workbench.panel.defaultLocation": "right",
+  "files.autoSave": "afterDelay",
 
   /* auto complete related */
-  "editor.suggest.snippetsPreventQuickSuggestions": false,
-  "editor.tabCompletion": "on",
+  "editor.quickSuggestions": {
+    "other": "on",
+    "comments": "on",
+    "strings": "on",
+  },
+  // unlike quick suggestion, this use tab to autocomplete when no pop up menu. and use tab and shift+tab to cycle through differnet options.
+  "editor.tabCompletion": "off",
+  // disable inline mode
+  "editor.inlineSuggest.enabled": false,
+  "emmet.useInlineCompletions": false,
+
+  // disable parameter hint
+  "editor.parameterHints.enabled": false,
+
+  // select most recent used and sorting by ones appear in local file ones first
+  "editor.suggest.localityBonus": true,
+  "editor.suggestSelection": "recentlyUsedByPrefix",
+  // 1. Remove random text matches from the file (The biggest cleanup)
+  "editor.suggest.showWords": false,
+  // 2. Remove language syntax (if, def, return, etc.)
+  "editor.suggest.showKeywords": false,
+  "editor.suggest.showOperators": false,
+  "editor.suggest.showFiles": false,
+  "editor.suggest.showValues": false,
+  "editor.suggest.showFolders": false,
+  "editor.suggest.showUnits": false,
+  "editor.suggest.showUsers": false,
+  "editor.suggest.showIcons": false,
+
+  // 3. Keep these ON (This is what you want)
+  "editor.suggest.showConstants": true,
+  "editor.suggest.showVariables": true,
+  "editor.suggest.showFunctions": true,
+  "editor.suggest.showClasses": true,
+  "editor.suggest.showMethods": true,
+  "editor.suggest.showModules": true,
+  "editor.suggest.showFields": true, // Class attributes (self.x)
+  "editor.suggest.showProperties": true,
+
+  "editor.suggest.shareSuggestSelections": true,
+  // 4. Handle Snippets (Keep them, but put them at the bottom)
+  "editor.suggest.showSnippets": true,
+  "editor.snippetSuggestions": "bottom",
+  // if true, allow jump to snippet placehoder when still within snippet, instead of trigger quick suggest.
+  "editor.suggest.snippetsPreventQuickSuggestions": true,
+  // allow enter to accept suggestion
+  "editor.acceptSuggestionOnEnter": "on",
 
   /* general programming editor setting */
   "editor.bracketPairColorization.enabled": true,
@@ -45,6 +90,11 @@
   "terminal.integrated.cursorBlinking": true,
   "terminal.integrated.cursorStyleInactive": "line",
 
+  "terminal.integrated.gpuAcceleration": "off",
+  // see https://github.com/microsoft/vscode-python-environments/issues/997
+  //  needed for speed up activate environment for vscode
+  "python-envs.terminal.autoActivationType": "shellStartup",
+
   /* default language agnositic font */
   "editor.formatOnSave": true,
   "editor.fontFamily": "Fira Code",
@@ -60,20 +110,45 @@
   "python.analysis.autoFormatStrings": true,
   "[python]": {
     "editor.wordWrap": "wordWrapColumn",
-    "editor.wordWrapColumn": 120,
+    "editor.wordWrapColumn": 88,
     "editor.fontFamily": "Fira Code Light",
     "editor.fontLigatures": true,
     "editor.fontWeight": "normal",
-    "editor.rulers": [120],
+    "editor.rulers": [88],
     "editor.defaultFormatter": "charliermarsh.ruff",
     "editor.codeActionsOnSave": {
       "source.organizeImports.ruff": "explicit",
       "source.fixAll": "explicit",
     },
   },
+  "debug.inlineValues": "off",
 
   /* lint choice, make sure ruff is used */
   "ruff.enable": true,
+
+  /* notebook configuration  */
+  "notebook.codeActionsOnSave": {
+    "notebook.source.organizeImports.ruff": "explicit",
+    "notebook.source.fixAll.ruff": "explicit",
+  },
+  "notebook.defaultFormatter": "charliermarsh.ruff",
+  "notebook.formatOnSave.enabled": true,
+  "notebook.output.fontFamily": "Fira Code Light",
+  "notebook.markup.fontSize": 11,
+  "notebook.output.fontSize": 11,
+  "notebook.showCellStatusBar": "visibleAfterExecute",
+  "notebook.lineNumbers": "on",
+  // use those to reduce the blank gap between cells
+  "notebook.compactView": true,
+  "notebook.insertToolbarLocation": "hidden",
+  "notebook.cellToolbarLocation": {
+    "default": "hidden",
+  },
+  // not showing gray output in same line
+  "notebook.inlineValues": "off",
+  "notebook.stickyScroll.mode": "indented",
+  // disable break
+  "breadcrumbs.enabled": false,
 
   /* dockerfile config */
   "[dockerfile]": {
@@ -128,5 +203,9 @@
   "ansible.python.interpreterPath": "/usr/local/bin/python3",
   "ansible.ansible.path": "/Users/lunyanghuang/.local/bin/ansible",
   "ansible.validation.lint.path": "/Users/lunyanghuang/anaconda3/envs/ansible/bin/ansible-lint",
-  "update.showReleaseNotes": false,
+
+  // update config
+  "update.showReleaseNotes": true,
+  "workbench.editor.enablePreview": false,
+  "notebook.stickyScroll.enabled": true,
 }

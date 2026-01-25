@@ -60,4 +60,9 @@
 		"body": "let someId = '${RELATIVE_FILEPATH}/${UUID}'$0",
 		"description": "test uuid",
 	},
+	"ignore_type": {
+		"prefix": "ignore_type",
+		"body": "# type:ignore",
+		"description": "ignore line type error",
+	},
 }
