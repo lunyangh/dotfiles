@@ -1,3 +1,4 @@
+// after resync vscode setting.
 {
   /* Files */
   // auto save files
@@ -22,8 +23,6 @@
   "files.watcherInclude": [],
 
   /* Window & workbench */
-  "workbench.iconTheme": "material-icon-theme",
-  "window.restoreWindows": "all",
   // "window.zoomLevel": 0.25,
   // top widow title
   "window.title": "${dirty}${activeEditorShort}${separator}${rootPath}${separator}${appName}",
@@ -41,12 +40,6 @@
   "workbench.settings.enableNaturalLanguageSearch": false,
   // color theme
   "workbench.colorTheme": "Atom One Dark",
-  // trust
-  "security.workspace.trust.untrustedFiles": "prompt",
-  "workbench.editorAssociations": {
-    "*.ipynb": "jupyter-notebook",
-    "*.pdf": "latex-workshop-pdf-hook",
-  },
 
   /* Explorer */
   // turn on behavior having file exploror scroll to active file
@@ -64,8 +57,7 @@
   // comment color
   "editor.tokenColorCustomizations": {
     "[Atom One Dark]": {
-      // "comments": "#7f848e",
-      "comments": "#07db72",
+      "comments": "#7f848e",
     },
   },
   "editor.autoIndent": "brackets",
@@ -78,10 +70,7 @@
   "editor.occurrencesHighlight": "off",
   "editor.selectionHighlight": true,
   // editor color paired brackets, turn off
-  "editor.guides.bracketPairs": true,
-  "editor.bracketPairColorization.enabled": true,
-  // smart select
-  "editor.smartSelect.selectSubwords": false,
+  "editor.bracketPairColorization.enabled": false,
   // minimap off
   "editor.minimap.enabled": false,
   "editor.minimap.renderCharacters": false,
@@ -96,7 +85,6 @@
   // modify on editing.
   "editor.pasteAs.preferences": [
     "markdown.link.url",
-    "uri.path.absolute",
     "text.updateLinks.markdown",
     "text.plain",
   ],
@@ -152,7 +140,6 @@
   /* pylance */
   "python.analysis.autoSearchPaths": true,
   "python.analysis.indexing": true,
-  "python.analysis.typeCheckingMode": "basic",
   "python.analysis.diagnosticSeverityOverrides": {
     "reportMissingImports": "none",
     "reportMissingModuleSource": "none",
@@ -218,7 +205,6 @@
   "editor.acceptSuggestionOnCommitCharacter": false,
   "editor.suggest.insertMode": "insert",
   // diable inline completion
-  "editor.inlineSuggest.enabled": false,
   "emmet.useInlineCompletions": false,
   // control if press tab directly insert suggestion without widget.
   "editor.tabCompletion": "off",
@@ -239,8 +225,6 @@
   "editor.suggest.showKeywords": false,
   "editor.suggestSelection": "recentlyUsedByPrefix",
   "editor.suggest.shareSuggestSelections": true,
-  "editor.suggest.showWords": false,
-  "editor.suggest.showUsers": false,
 
   /* Notebook */
   "notebook.output.scrolling": true,
@@ -253,15 +237,6 @@
   "notebook.output.lineHeight": 17,
   "notebook.showCellStatusBar": "visibleAfterExecute",
   "notebook.formatOnCellExecution": true,
-  "notebook.compactView": true,
-  "notebook.lineNumbers": "on",
-  "notebook.formatOnSave.enabled": true,
-  "notebook.stickyScroll.enabled": true,
-  "notebook.inlineValues": "off",
-  "notebook.codeActionsOnSave": {
-    "notebook.source.organizeImports.ruff": "explicit",
-    "notebook.source.fixAll.ruff": "explicit",
-  },
 
   /* other language */
   "[markdown]": {
@@ -274,12 +249,8 @@
     "editor.defaultFormatter": "yzhang.markdown-all-in-one",
   },
   "markdown.extension.list.indentationSize": "inherit",
-  "markdown.extension.tableFormatter.normalizeIndentation": true,
-  "markdown.extension.preview.autoShowPreviewToSide": false,
-  "markdown-preview-enhanced.automaticallyShowPreviewOfMarkdownBeingEdited": false,
   "markdown-preview-enhanced.previewTheme": "newsprint.css",
   "markdown-preview-enhanced.liveUpdate": true,
-  "markdown-preview-enhanced.revealjsTheme": "none.css",
   "markdown-preview-enhanced.codeBlockTheme": "vs.css",
   "markdown.preview.fontSize": 11,
   "markdown.preview.fontFamily": "Fira Code Light",
@@ -308,28 +279,9 @@
     "editor.rulers": [120],
     "editor.defaultFormatter": "esbenp.prettier-vscode",
   },
-  "[dockerfile]": {
-    "editor.wordWrap": "wordWrapColumn",
-    "editor.wordWrapColumn": 120,
-    "editor.fontFamily": "Fira Code Light",
-    "editor.fontLigatures": true,
-    "editor.fontWeight": "normal",
-    "editor.rulers": [120],
-  },
-  "[javascript]": {
-    "editor.indentSize": 2,
-    "editor.insertSpaces": true,
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-  },
 
   /* Terminal */
-  "workbench.colorCustomizations": {
-    "statusBar.background": "#8FBCBB",
-    "statusBar.noFolderBackground": "#8FBCBB",
-    "statusBar.debuggingBackground": "#8FBCBB",
-    "statusBar.foreground": "#434C5E",
-    "statusBar.debuggingForeground": "#434C5E",
-  },
+  "workbench.colorCustomizations": {},
   "terminal.integrated.cursorBlinking": true,
   "terminal.integrated.cursorStyle": "line",
   "terminal.integrated.commandsToSkipShell": [
@@ -457,14 +409,4 @@
 
   /* Zen Mode */
   "zenMode.hideLineNumbers": false,
-
-  /* ansible config */
-  "ansible.lightspeed.enabled": false,
-  "ansible.lightspeed.suggestions.enabled": false,
-  "ansible.python.interpreterPath": "/usr/local/bin/python3",
-  "ansible.ansible.path": "/Users/lunyanghuang/.local/bin/ansible",
-  "ansible.validation.lint.path": "/Users/lunyanghuang/anaconda3/envs/ansible/bin/ansible-lint",
-
-  /* update  */
-  "update.showReleaseNotes": true,
 }
