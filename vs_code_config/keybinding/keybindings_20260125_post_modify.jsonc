@@ -12,6 +12,10 @@ This version fits following keyboard configuration:
 
 The key adjustment here aims to mimic windows keyboard with the key adjustment
 
+v4:
+* refactor and sync keyboard bindings.
+* also remove many system defined notebook shortcuts, replace with jupyter style shortcuts.
+
 */
 
 [
