@@ -1,4 +1,5 @@
 // post sync vscode setting + add old setting not show up in new setting
+// also edited for jupyter notebook performance.
 {
   /* Files */
   // auto save files
@@ -245,13 +246,15 @@
 
   /* Notebook */
   "notebook.output.scrolling": true,
-  "notebook.markup.fontSize": 14,
-  "notebook.output.fontSize": 15,
+  "notebook.output.textLineLimit": 100,
+  "notebook.scrolling.revealNextCellOnExecute": "fullCell",
+  "output.smartScroll.enabled": false,
+  "notebook.markup.fontSize": 11,
+  "notebook.output.fontSize": 11,
   "notebook.cellToolbarLocation": {
     "default": "hidden",
   },
   "notebook.insertToolbarLocation": "hidden",
-  "notebook.output.lineHeight": 17,
   "notebook.showCellStatusBar": "visibleAfterExecute",
   "notebook.formatOnCellExecution": true,
   "notebook.compactView": true,

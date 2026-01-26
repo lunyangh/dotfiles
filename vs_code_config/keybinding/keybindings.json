@@ -1089,6 +1089,11 @@ The key adjustment here aims to mimic windows keyboard with the key adjustment
     "command": "-notebook.centerActiveCell",
     "when": "notebookEditorFocused",
   },
+  {
+    "key": "cmd+k y",
+    "command": "-notebook.cell.toggleOutputScrolling",
+    "when": "notebookCellHasOutputs && notebookCellListFocused && !inputFocus",
+  },
 
   // configure jupyter style keymap
 
@@ -1242,11 +1247,6 @@ The key adjustment here aims to mimic windows keyboard with the key adjustment
     "when": "notebookEditorFocused && !inputFocus && !notebookOutputInputFocused",
   },
   // expand scroll
-  {
-    "key": "cmd+k y",
-    "command": "notebook.cell.toggleOutputScrolling",
-    "when": "notebookCellHasOutputs && notebookCellListFocused && !inputFocus",
-  },
 
   // kernel
   {

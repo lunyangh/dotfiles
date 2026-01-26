@@ -1093,6 +1093,11 @@ v4:
     "command": "-notebook.centerActiveCell",
     "when": "notebookEditorFocused",
   },
+  {
+    "key": "cmd+k y",
+    "command": "-notebook.cell.toggleOutputScrolling",
+    "when": "notebookCellHasOutputs && notebookCellListFocused && !inputFocus",
+  },
 
   // configure jupyter style keymap
 
@@ -1246,11 +1251,6 @@ v4:
     "when": "notebookEditorFocused && !inputFocus && !notebookOutputInputFocused",
   },
   // expand scroll
-  {
-    "key": "cmd+k y",
-    "command": "notebook.cell.toggleOutputScrolling",
-    "when": "notebookCellHasOutputs && notebookCellListFocused && !inputFocus",
-  },
 
   // kernel
   {

@@ -146,7 +146,7 @@
       "source.organizeImports.ruff": "explicit",
     },
   },
-  "python.defaultInterpreterPath": "/Users/lunyanghuang/anaconda3",
+  "python.defaultInterpreterPath": "/usr/local/bin/python3",
   "autoDocstring.docstringFormat": "numpy",
 
   /* pylance */
@@ -244,17 +244,18 @@
 
   /* Notebook */
   "notebook.output.scrolling": true,
-  "notebook.markup.fontSize": 14,
-  "notebook.output.fontSize": 15,
+  "notebook.output.textLineLimit": 100,
+  "notebook.scrolling.revealNextCellOnExecute": "fullCell",
+  "output.smartScroll.enabled": false,
+  "notebook.markup.fontSize": 11,
+  "notebook.output.fontSize": 11,
   "notebook.cellToolbarLocation": {
     "default": "hidden",
   },
   "notebook.insertToolbarLocation": "hidden",
-  "notebook.output.lineHeight": 17,
   "notebook.showCellStatusBar": "visibleAfterExecute",
   "notebook.formatOnCellExecution": true,
   "notebook.compactView": true,
-  "notebook.lineNumbers": "on",
   "notebook.formatOnSave.enabled": true,
   "notebook.stickyScroll.enabled": true,
   "notebook.inlineValues": "off",
@@ -467,4 +468,5 @@
 
   /* update  */
   "update.showReleaseNotes": true,
+  "notebook.lineNumbers": "on",
 }
