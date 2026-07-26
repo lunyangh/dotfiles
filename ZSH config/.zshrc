@@ -231,3 +231,7 @@ if [ -f '/Users/lunyanghuang/Dropbox (Personal)/project_v2/google_cloud/cloud_cl
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/lunyanghuang/Dropbox (Personal)/project_v2/google_cloud/cloud_cli/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/lunyanghuang/Dropbox (Personal)/project_v2/google_cloud/cloud_cli/google-cloud-sdk/completion.zsh.inc'; fi
+
+
+# Added by Antigravity CLI installer
+export PATH="/Users/lunyanghuang/.local/bin:$PATH"
