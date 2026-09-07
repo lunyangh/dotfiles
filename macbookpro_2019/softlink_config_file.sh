@@ -19,7 +19,7 @@ echo "Starting script in directory: $(pwd)"
 echo "Script finished successfully."
 
 # path variable 
-dotfile_path="$HOME/dropbox/project/terminal/dotfiles"
+dotfile_path="$HOME/Dropbox (Personal)/computer_config/dotfiles/macbookpro_2019"
 vs_code_config_path="$HOME/Library/Application Support/Code/User"
 ssh_config_path="$HOME/.ssh"
 
