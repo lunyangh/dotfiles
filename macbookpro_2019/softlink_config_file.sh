@@ -35,7 +35,6 @@ ln -sf "$dotfile_path/ZSH config/.zpreztorc" ~/.zpreztorc
 ln -sf "$dotfile_path/tmux config/.tmux.conf"  ~/.tmux.conf
 
 ln -sf "$dotfile_path/tmux config/.tmux_status_bar"  ~/.tmux/.tmux_status_bar
-«
 # python snippets
 ln -sf "$dotfile_path/Vim config/snippets/python.snippets" ~/.vim/user_snippets/python.snippets
 
