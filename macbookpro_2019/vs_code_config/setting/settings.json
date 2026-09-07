@@ -492,4 +492,9 @@
   "update.showReleaseNotes": true,
   "jupyter.askForKernelRestart": false,
   "chat.viewSessions.orientation": "stacked",
+  "chatgpt.followUpQueueMode": "steer",
 }
+
+
+
+

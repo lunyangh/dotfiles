@@ -209,7 +209,7 @@ unsetopt AUTO_CD
 
 
 
-source /Users/lunyanghuang/htcondor/condor/condor.sh
+
 
 
 # init zoxide
