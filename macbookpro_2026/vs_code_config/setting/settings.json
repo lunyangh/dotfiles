@@ -44,8 +44,7 @@
   // trust
   "security.workspace.trust.untrustedFiles": "prompt",
   "workbench.editorAssociations": {
-    "*.ipynb": "jupyter-notebook",
-    "*.pdf": "latex-workshop-pdf-hook",
+    "*.ipynb": "jupyter-notebook"
   },
 
   /* Explorer */
@@ -198,7 +197,10 @@
   "git.openRepositoryInParentFolders": "never",
 
   /* claude code */
-  "chat.fontSize": 15,
+  "chat.fontSize": 14,
+  "chat.fontFamily": "Fira Code Light",
+  "chat.editor.fontFamily": "Fira Code Light",
+  "chat.viewSessions.orientation": "stacked",
   "claudeCode.userTerminal": false,
   "claudeCode.respectGitIgnore": false,
 
@@ -481,12 +483,6 @@
   /* Zen Mode */
   "zenMode.hideLineNumbers": false,
 
-  /* ansible config */
-  "ansible.lightspeed.enabled": false,
-  "ansible.lightspeed.suggestions.enabled": false,
-  "ansible.python.interpreterPath": "/usr/local/bin/python3",
-  "ansible.ansible.path": "/Users/lunyanghuang/.local/bin/ansible",
-  "ansible.validation.lint.path": "/Users/lunyanghuang/anaconda3/envs/ansible/bin/ansible-lint",
 
   /* update  */
   "update.showReleaseNotes": true,
@@ -494,3 +490,7 @@
   "chat.viewSessions.orientation": "stacked",
   "chatgpt.followUpQueueMode": "steer",
 }
+
+
+
+
