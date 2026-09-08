@@ -91,12 +91,15 @@ Launch Antigravity on Mac 2026. All conversation histories and projects will now
 
 ---
 
-## 5. Test Case Status (Verified)
+## 5. Migration Status (Completed & Verified)
 - **Execution Date:** 2026-09-07
-- **Test Conversation:** `04ea6e69-f1e6-498c-8464-2765327adf7d` (`d2l_study`)
-- **Status:** ✅ Verified & Working
-- **Results:**
-  - `04ea6e69-f1e6-498c-8464-2765327adf7d.db` and `brain/` loaded seamlessly.
-  - Full chat history, code artifacts, and plans rendered with zero errors.
-  - Conversation successfully populated into the Antigravity left sidebar.
-  - Ready for full migration via `./migrate_antigravity.sh` whenever convenient.
+- **Overall Status:** ✅ Fully Migrated & Verified
+- **Conversations:** All 39 historical conversations copied, path-translated, and activated into Antigravity session history.
+- **Projects:** `d2l_study`, `network_science`, `network_diffusion`, `金工研报`, and `chat` (renamed from `antigravity`) verified.
+- **Outside-of-Project Migration:** 
+  - Created [`move_outside_conversations_to_chat.sh`](file:///Users/lunyang/files/Dropbox/computer_config/dotfiles/macbookpro_2026/move_outside_conversations_to_chat.sh) to reassign the 4 non-project conversations into the `chat` project (`a2f3e0d2-26dd-4a90-9e54-14e2896787d2`).
+  - Run after quitting Antigravity (Cmd+Q):
+    ```bash
+    bash ~/files/Dropbox/computer_config/dotfiles/macbookpro_2026/move_outside_conversations_to_chat.sh
+    ```
+
