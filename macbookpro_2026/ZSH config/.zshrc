@@ -80,6 +80,12 @@ unsetopt AUTO_CD
 # Enable emacs keybinding
 bindkey -e
 
+# Prevent Ctrl-D at an empty prompt from exiting the shell.
+setopt ignoreeof
+
+# Disable zsh's default Ctrl-D completion/listing behavior.
+bindkey '^D' undefined-key
+
 # Jupyter notebook alias
 alias jb='jupyter lab --notebook-dir=.'
 
