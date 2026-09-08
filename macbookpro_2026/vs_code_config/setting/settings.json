@@ -364,6 +364,8 @@
     "workbench.action.navigateDown",
   ],
   "terminal.integrated.sendKeybindingsToShell": false,
+  // Send macOS Option/Alt combinations as Meta sequences to terminal programs.
+  "terminal.integrated.macOptionIsMeta": true,
   "terminal.integrated.mouseWheelScrollSensitivity": 3,
   "terminal.integrated.fastScrollSensitivity": 3,
   "terminal.integrated.fontWeight": "normal",
