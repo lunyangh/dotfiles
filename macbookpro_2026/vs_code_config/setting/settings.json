@@ -44,7 +44,7 @@
   // trust
   "security.workspace.trust.untrustedFiles": "prompt",
   "workbench.editorAssociations": {
-    "*.ipynb": "jupyter-notebook"
+    "*.ipynb": "jupyter-notebook",
   },
 
   /* Explorer */
@@ -55,7 +55,7 @@
 
   /* Explorer Core */
   // font setting, line wrapup behavior
-  "editor.fontFamily": "Fira code Light",
+  "editor.fontFamily": "FiraCode Nerd Font Light", // "FiraCode Nerd Font" for non light version
   "editor.fontLigatures": true,
   "editor.fontSize": 11,
   "editor.tabSize": 4,
@@ -146,7 +146,7 @@
       "source.organizeImports.ruff": "explicit",
     },
   },
-  "python.defaultInterpreterPath": "/usr/local/bin/python3",
+  "python.defaultInterpreterPath": "python3",
   "autoDocstring.docstringFormat": "numpy",
 
   /* pylance */
@@ -483,14 +483,8 @@
   /* Zen Mode */
   "zenMode.hideLineNumbers": false,
 
-
   /* update  */
   "update.showReleaseNotes": true,
   "jupyter.askForKernelRestart": false,
-  "chat.viewSessions.orientation": "stacked",
   "chatgpt.followUpQueueMode": "steer",
 }
-
-
-
-

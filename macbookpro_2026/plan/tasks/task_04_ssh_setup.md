@@ -19,3 +19,14 @@ The agent executing `softlink_config_file.sh` will ensure:
 3. The symlink is created from the repository to `~/.ssh/config`.
 
 *(Note: The user will manually add new SSH keys and host mappings to this file as needed on the new machine.)*
+
+---
+
+## Status & Notes (Completed)
+- **Execution Date:** 2026-09-07
+- **Status:** ✅ Completed and Verified
+- **Verification Details:**
+  - `~/.ssh` created with strict `700` (`drwx------`) directory permissions.
+  - `ssh_config/config` target locked down to `600` permissions.
+  - Symlink created: `~/.ssh/config` ➔ `macbookpro_2026/ssh_config/config`.
+  - OpenSSH configuration parsing verified cleanly (`ssh -G localhost`).

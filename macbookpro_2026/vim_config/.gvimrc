@@ -4,5 +4,5 @@
 set macligatures
 
 " Set the primary font and size. 
-" Fira Code is required to render the Airline symbols (, ) correctly in the GUI.
-set guifont=Fira\ Code:h16
+" FiraCode Nerd Font contains the Powerline/Nerd Font symbols (, , , ) for Airline.
+set guifont=FiraCode\ Nerd\ Font:h16,FiraCode\ Nerd\ Font\ Mono:h16

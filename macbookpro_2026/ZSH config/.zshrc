@@ -1,59 +1,3 @@
-# Task 01: Complete Terminal Environment Setup (Homebrew, Fonts, Zsh)
-
-**Context:** This task handles the end-to-end setup of the terminal environment on Apple Silicon macOS. Because the package manager, fonts, terminal UI (Spaceship), and shell configurations (Zsh) are heavily intertwined, they are executed together here.
-
-## 1. Install Homebrew
-Install the native Apple Silicon version of Homebrew (installs to `/opt/homebrew`):
-```bash
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-```
-*(Ensure `eval "$(/opt/homebrew/bin/brew shellenv)"` is evaluated in the current session so `brew` is immediately available in PATH.)*
-
-## 2. System Fonts Installation
-Spaceship prompt and modern CLI tools require specific glyphs. Install the FiraCode Nerd Font via Homebrew:
-```bash
-brew install --cask font-fira-code-nerd-font
-```
-*Note: After installation, open your terminal emulator (e.g., iTerm2) and set the font to `FiraCode Nerd Font`.*
-
-## 3. Install CLI Utilities & Enhancements
-With Homebrew and fonts ready, install the core workflow tools:
-```bash
-# Standard Tools
-brew install git curl wget jq tmux tree tldr rsync pstree
-
-# Modern Enhancements, Prompts & Zsh Plugins
-brew install spaceship fzf ripgrep zoxide zsh-autosuggestions zsh-syntax-highlighting
-
-# Clone Tmux Resurrect (Session saving plugin) to user-controlled central folder
-DROPBOX_PATH="$HOME/files/Dropbox"
-mkdir -p "$DROPBOX_PATH/computer_config/terminal/tmux"
-if [ ! -d "$DROPBOX_PATH/computer_config/terminal/tmux/tmux-resurrect" ]; then
-  git clone https://github.com/tmux-plugins/tmux-resurrect "$DROPBOX_PATH/computer_config/terminal/tmux/tmux-resurrect"
-fi
-```
-
-## 4. Install `uv` (Fast Python package manager)
-```bash
-curl -LsSf https://astral.sh/uv/install.sh | sh
-```
-
-## 5. Oh My Zsh Installation
-Install Oh My Zsh unattended to set up the framework:
-```bash
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
-```
-
-## 6. Zsh Configuration Refactoring (.zshrc)
-
-Create a new, modernized `.zshrc` inside the `macbookpro_2026/ZSH config/` folder:
-- Strictly follows the proper loading order to prevent plugin conflicts.
-- Exports `$ZSH` properly.
-- Sources Homebrew's `shellenv` on Apple Silicon.
-- Uses direct paths to `/opt/homebrew` for fast, lag-free terminal startup.
-
-### Modern `.zshrc` Template:
-```zsh
 # --- 1. HOMEBREW ENVIRONMENT (Must be first for Apple Silicon) ---
 if [[ -f /opt/homebrew/bin/brew ]]; then
   eval "$(/opt/homebrew/bin/brew shellenv)"
@@ -169,7 +113,3 @@ if [[ -f /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
   ZSH_HIGHLIGHT_STYLES[history-expansion]="fg=white"
   ZSH_HIGHLIGHT_PATTERNS+=('rm -rf *' 'fg=white,bold,bg=red')
 fi
-```
-
-## 7. Establish Softlinks
-Run `softlink_config_file.sh` to link `.zshrc` to `~/.zshrc`.

@@ -20,6 +20,10 @@ To set up the new Mac from scratch, install these terminal utilities sequentiall
 - **Strategy:** Direct Transfer.
 - **Action:** We will copy the `vs_code_config` folder (including `settings.json`, `keybindings.json`, and `snippets`) directly from `macbookpro_2019` into the `macbookpro_2026` folder and softlink them exactly as before.
 
+### Tmux Configuration (`.tmux.conf` & `.tmux_status_bar`)
+- **Strategy:** Direct Transfer with Central Plugin Management.
+- **Action:** Softlink `~/.tmux.conf` and `~/.tmux/.tmux_status_bar` to maintain the custom `Option + p` prefix, Vi pane navigation, and Atom One Dark status bar. Link `tmux-resurrect` from the central `computer_config/terminal/tmux/` directory.
+
 ### Zsh Configuration (`.zshrc`)
 - **Strategy:** Modernize and Clean up.
 - **Actions:**

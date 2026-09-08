@@ -2,16 +2,26 @@
 /*
 version log:
 v3:
-This version fits following keyboard configuration:
+This keybinding configuration fits the following Logitech G915 TKL keyboard configuration:
 
-915 TKL keybaord connected to mac:
-  * command key maps to left control,
-  * control key maps to window key,
-  * option key maps to alt key.
-  * control key also maps to Caps key. this is necessary for using cap key as  modifier key to enable cap key + space type modifier. as mac does not suppport command key as modifier.
+In macOS Modifier Keys settings for 915 TKL:
+  - Command Key   -> Control
+  - Option Key    -> Option
+  - Control Key   -> Command
+  - Caps Lock Key -> Control
 
-The key adjustment here aims to mimic windows keyboard with the key adjustment
+Resulting physical keys from left to right on the 915 TKL bottom row:
+  1. Physical Ctrl Key (originally Control)    -> Command
+  2. Physical Windows Key (originally Command) -> Control
+  3. Physical Alt Key (originally Option)      -> Option (recognized in VS Code as 'Alt')
 
+Functional Roles:
+  - Option takes the 'Alt' key role (matching Windows).
+  - Command takes the 'Ctrl' key role (matching Windows).
+  - Caps Lock also maps to Control, enabling Caps Lock as a modifier key (e.g., Caps + Space)
+    since macOS does not support Command as a custom modifier in the same way.
+
+Most standard key mappings are preserved and work naturally without artificial adjustments.
 */
 
 [
@@ -140,6 +150,10 @@ The key adjustment here aims to mimic windows keyboard with the key adjustment
     "key": "alt+cmd+tab",
     "command": "-workbench.action.showAllEditors",
   },
+  // {
+  //   "key": "ctrl+space e",
+  //   "command": "workbench.action.quickOpenPreviousRecentlyUsedEditor",
+  // },
   {
     "key": "ctrl+space e",
     "command": "workbench.action.showAllEditors",
@@ -148,6 +162,16 @@ The key adjustment here aims to mimic windows keyboard with the key adjustment
   //   "key": "ctrl+space e",
   //   "command": "workbench.action.showEditorsInActiveGroup",
   // },
+  // disable this as switching window.
+  // {
+  //   "key": "ctrl+w",
+  //   "command": "-workbench.action.switchWindow",
+  // },
+  // refresh file from disk, useful when working with claude code or other agents to editing code.
+  {
+    "key": "ctrl+space g",
+    "command": "workbench.action.files.revert",
+  },
 
   // peek definition
   {
@@ -816,10 +840,10 @@ The key adjustment here aims to mimic windows keyboard with the key adjustment
   },
 
   /* git */
-  {
-    "key": "ctrl+space g",
-    "command": "git.openChange",
-  },
+  // {
+  //   "key": "ctrl+space g",
+  //   "command": "git.openChange",
+  // },
 
   /* debugger */
   // send selection to repl

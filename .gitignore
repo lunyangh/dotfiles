@@ -1,0 +1,24 @@
+# macOS system generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+.AppleDouble
+.LSOverride
+Icon?
+
+# Windows / cross-platform thumbnails
+Thumbs.db
+ehthumbs.db
+
+# Editor temporary & swap files
+*.swp
+*.swo
+*~
+*.bak
+*.tmp
+
+# Staging & timestamped backups
+*_backup_*
+/tmp/
