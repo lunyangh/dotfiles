@@ -134,7 +134,7 @@
 
   /* python language */
   "[python]": {
-    "editor.fontFamily": "Fira Code Light",
+    "editor.fontFamily": "FiraCode Nerd Font Light",
     "editor.fontLigatures": true,
     "editor.fontSize": 11,
     "editor.wordWrap": "wordWrapColumn",
@@ -197,11 +197,12 @@
   "git.openRepositoryInParentFolders": "never",
 
   /* claude code */
-  "chat.fontSize": 14,
-  "chat.fontFamily": "Fira Code Light",
-  "chat.editor.fontFamily": "Fira Code Light",
+  "chat.fontSize": 12,
+  "chat.editor.fontSize": 12,
+  "chat.fontFamily": "FiraCode Nerd Font Light",
+  "chat.editor.fontFamily": "FiraCode Nerd Font Light",
   "chat.viewSessions.orientation": "stacked",
-  "claudeCode.userTerminal": false,
+  "claudeCode.useTerminal": false,
   "claudeCode.respectGitIgnore": false,
 
   /* linting  */
@@ -281,7 +282,7 @@
 
   /* other language */
   "[markdown]": {
-    "editor.fontFamily": "Fira Code Light",
+    "editor.fontFamily": "FiraCode Nerd Font Light",
     "editor.fontLigatures": true,
     "editor.fontSize": 11,
     "editor.wordWrap": "bounded",
@@ -298,9 +299,9 @@
   "markdown-preview-enhanced.revealjsTheme": "none.css",
   "markdown-preview-enhanced.codeBlockTheme": "vs.css",
   "markdown.preview.fontSize": 11,
-  "markdown.preview.fontFamily": "Fira Code Light",
+  "markdown.preview.fontFamily": "FiraCode Nerd Font Light",
   "[xml]": {
-    "editor.fontFamily": "Fira Code Light",
+    "editor.fontFamily": "FiraCode Nerd Font Light",
     "editor.fontLigatures": true,
     "editor.wordWrap": "bounded",
     "editor.wordWrapColumn": 180,
@@ -327,7 +328,7 @@
   "[dockerfile]": {
     "editor.wordWrap": "wordWrapColumn",
     "editor.wordWrapColumn": 120,
-    "editor.fontFamily": "Fira Code Light",
+    "editor.fontFamily": "FiraCode Nerd Font Light",
     "editor.fontLigatures": true,
     "editor.fontWeight": "normal",
     "editor.rulers": [120],
@@ -370,7 +371,7 @@
   "terminal.integrated.scrollback": 10000,
   "terminal.integrated.defaultLocation": "view",
   "terminal.integrated.fontSize": 13,
-  "terminal.integrated.fontFamily": "Fira Code Light",
+  "terminal.integrated.fontFamily": "FiraCode Nerd Font Light",
   "terminal.integrated.copyOnSelection": true,
   "terminal.integrated.rightClickBehavior": "paste",
   // speed up terminal environment activation
@@ -487,4 +488,6 @@
   "update.showReleaseNotes": true,
   "jupyter.askForKernelRestart": false,
   "chatgpt.followUpQueueMode": "steer",
+  "claudeCode.preferredLocation": "panel",
+  "claudeCode.focusView": true,
 }

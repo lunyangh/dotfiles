@@ -750,11 +750,11 @@ Most standard key mappings are preserved and work naturally without artificial a
   },
 
   // find in folder
-  {
-    "key": "ctrl+space f",
-    "command": "filesExplorer.findInFolder",
-    "when": "explorerResourceIsFolder && filesExplorerFocus && foldersViewVisible && !inputFocus",
-  },
+  // {
+  //   "key": "ctrl+space f",
+  //   "command": "filesExplorer.findInFolder",
+  //   "when": "explorerResourceIsFolder && filesExplorerFocus && foldersViewVisible && !inputFocus",
+  // },
   {
     "key": "shift+alt+f",
     "command": "-filesExplorer.findInFolder",
@@ -790,16 +790,16 @@ Most standard key mappings are preserved and work naturally without artificial a
     "command": "-workbench.action.replaceInFiles",
   },
   // search result navigation
-  {
-    "key": "ctrl+space n",
-    "command": "editor.action.nextMatchFindAction",
-    "when": "editorFocus",
-  },
-  {
-    "key": "ctrl+space shift+n",
-    "command": "editor.action.previousMatchFindAction",
-    "when": "editorFocus",
-  },
+  // {
+  //   "key": "ctrl+space n",
+  //   "command": "editor.action.nextMatchFindAction",
+  //   "when": "editorFocus",
+  // },
+  // {
+  //   "key": "ctrl+space shift+n",
+  //   "command": "editor.action.previousMatchFindAction",
+  //   "when": "editorFocus",
+  // },
   {
     "key": "f3",
     "command": "-editor.action.nextMatchFindAction",
@@ -1612,6 +1612,67 @@ Most standard key mappings are preserved and work naturally without artificial a
     "when": "terminalFocus",
   },
 
+  /* claude code */
+  // insert an @-mention reference to the current file / selection into the Claude prompt
+  {
+    "key": "ctrl+space q",
+    "command": "claude-vscode.insertAtMention",
+    "when": "editorTextFocus",
+  },
+  {
+    "key": "alt+k",
+    "command": "-claude-vscode.insertAtMention",
+    "when": "editorTextFocus",
+  },
+  {
+    "key": "alt+cmd+k",
+    "command": "-claude-code.insertAtMentioned",
+    "when": "editorTextFocus",
+  },
+  // toggle focus between the editor and the Claude prompt input
+  {
+    "key": "ctrl+space f",
+    "command": "claude-vscode.focus",
+    "when": "editorTextFocus && !config.claudeCode.useTerminal",
+  },
+  {
+    "key": "ctrl+space f",
+    "command": "claude-vscode.blur",
+    "when": "!config.claudeCode.useTerminal && !editorTextFocus",
+  },
+  // free up cmd+escape (macOS Tahoe Game Overlay steals it) by unbinding its claude / chat / comment actions
+  {
+    "key": "cmd+escape",
+    "command": "-claude-vscode.focus",
+    "when": "editorTextFocus && !config.claudeCode.useTerminal",
+  },
+  {
+    "key": "cmd+escape",
+    "command": "-claude-vscode.blur",
+    "when": "!config.claudeCode.useTerminal && !editorTextFocus",
+  },
+  {
+    "key": "cmd+escape",
+    "command": "-workbench.action.chat.cancel",
+    "when": "chatSessionHasActiveRequest && !chatRemoteJobCreating",
+  },
+  {
+    "key": "cmd+escape",
+    "command": "-workbench.action.hideComment",
+    "when": "commentWidgetVisible && editorFocus",
+  },
+  // open a new Claude conversation as an editor tab
+  {
+    "key": "ctrl+space n",
+    "command": "claude-vscode.editor.open",
+    "when": "!config.claudeCode.useTerminal",
+  },
+  {
+    "key": "shift+cmd+escape",
+    "command": "-claude-vscode.editor.open",
+    "when": "!config.claudeCode.useTerminal",
+  },
+
   /* markdown */
   {
     "key": "ctrl+q q",
@@ -1951,6 +2012,13 @@ Most standard key mappings are preserved and work naturally without artificial a
     "key": "ctrl+n",
     "command": "-workbench.action.quickOpenSelectNext",
     "when": "inQuickOpen",
+  },
+
+  /* git */
+  // unbind alt+h from file history to free the key
+  {
+    "key": "alt+h",
+    "command": "-git.viewFileHistory",
   },
 ]
 
