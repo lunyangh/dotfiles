@@ -88,3 +88,15 @@ The script automatically translates:
 
 ### 4. Restart and Verify
 Launch Antigravity on Mac 2026. All conversation histories and projects will now be fully listed in the UI and load cleanly.
+
+---
+
+## 5. Test Case Status (Verified)
+- **Execution Date:** 2026-09-07
+- **Test Conversation:** `04ea6e69-f1e6-498c-8464-2765327adf7d` (`d2l_study`)
+- **Status:** ✅ Verified & Working
+- **Results:**
+  - `04ea6e69-f1e6-498c-8464-2765327adf7d.db` and `brain/` loaded seamlessly.
+  - Full chat history, code artifacts, and plans rendered with zero errors.
+  - Conversation successfully populated into the Antigravity left sidebar.
+  - Ready for full migration via `./migrate_antigravity.sh` whenever convenient.
