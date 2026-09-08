@@ -85,6 +85,10 @@ if [ -d "$CONFIG_DESTINATION" ]; then
     echo "Backing up config to ${CONFIG_DESTINATION}_backup_${BACKUP_TS}..."
     cp -R "$CONFIG_DESTINATION" "${CONFIG_DESTINATION}_backup_${BACKUP_TS}"
 fi
+if [ -d "$TARGET_CONVERSATIONS" ]; then
+    echo "Backing up conversations to ${TARGET_CONVERSATIONS}_backup_${BACKUP_TS}..."
+    cp -R "$TARGET_CONVERSATIONS" "${TARGET_CONVERSATIONS}_backup_${BACKUP_TS}"
+fi
 
 echo "Moving translated brain and config into place..."
 mkdir -p "$TARGET_DESTINATION"
